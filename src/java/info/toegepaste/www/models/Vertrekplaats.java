@@ -49,6 +49,7 @@ public class Vertrekplaats implements Serializable {
     @Column(name = "nummer")
     private String nummer;
     
+    
     @ManyToOne
     private Gemeente gemeente;
     

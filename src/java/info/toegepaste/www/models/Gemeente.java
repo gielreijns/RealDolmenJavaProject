@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -47,19 +48,22 @@ public class Gemeente implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "postcode")
-    private int postcode;
+    private String postcode;
     @ManyToOne
     private Land land;
     @OneToMany(mappedBy = "gemeente")
     private List<Gebruiker> gebruikers;
-    @OneToMany(mappedBy = "gemeente")
-    private List<Reis> reizen;
+   
     @OneToMany(mappedBy = "gemeente")
     private List<Vertrekplaats> vertrekplaatsen;
     @ManyToOne
+    @JoinColumn(name="gemeenteId")
     private Gebruiker gebruiker;
-    @ManyToOne
-    private Reis reis;
+    @JoinTable(
+      name="reizenpergebruiker",
+      joinColumns={@JoinColumn(name="gebruikerId", referencedColumnName="ID")},
+      inverseJoinColumns={@JoinColumn(name="reisId", referencedColumnName="ID")})
+    private List<Reis> reizen;
     @ManyToOne
     private Vertrekplaats vertrekplaats;
 
@@ -72,14 +76,6 @@ public class Gemeente implements Serializable {
 
     public void setGebruiker(Gebruiker gebruiker) {
         this.gebruiker = gebruiker;
-    }
-
-    public Reis getReis() {
-        return reis;
-    }
-
-    public void setReis(Reis reis) {
-        this.reis = reis;
     }
 
     public Vertrekplaats getVertrekplaats() {
@@ -122,11 +118,11 @@ public class Gemeente implements Serializable {
         this.naam = naam;
     }
 
-    public int getPostcode() {
+    public String getPostcode() {
         return postcode;
     }
 
-    public void setPostcode(int postcode) {
+    public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
 
