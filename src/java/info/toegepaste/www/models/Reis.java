@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package info.toegepaste.www.model;
+package info.toegepaste.www.models;
 
 import java.io.Serializable;
 import java.util.Date;

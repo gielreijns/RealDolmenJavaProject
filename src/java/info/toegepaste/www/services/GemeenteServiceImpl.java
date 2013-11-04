@@ -6,8 +6,8 @@
 
 package info.toegepaste.www.services;
 
-import info.toegepaste.www.model.Gemeente;
-import info.toegepaste.www.model.Land;
+import info.toegepaste.www.models.Gemeente;
+import info.toegepaste.www.models.Land;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
