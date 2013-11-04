@@ -6,7 +6,7 @@
 
 package info.toegepaste.www.controllers;
 
-import info.toegepaste.www.model.Gemeente;
+import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.services.GemeenteService;
 import java.io.Serializable;
 import java.util.List;

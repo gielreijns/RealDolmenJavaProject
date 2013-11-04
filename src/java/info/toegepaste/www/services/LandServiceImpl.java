@@ -6,7 +6,7 @@
 
 package info.toegepaste.www.services;
 
-import info.toegepaste.www.model.Land;
+import info.toegepaste.www.models.Land;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
