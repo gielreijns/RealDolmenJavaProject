@@ -7,9 +7,18 @@
     <h:head>
         <title>RD Travelshop | Reis boeken</title>
         <link rel="stylesheet" href="styles/layout.css" type="text/css" />
-            <link href="styles/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
-            <script src="js/jquery-1.8.3.js"></script>
-            <script src="js/jquery-ui-1.9.2.custom.js"></script>
+        <link href="styles/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+        <script src="js/jquery-1.8.3.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.js"></script>
+        <script>
+            $(function() {
+                $(".datepicker").datepicker({
+                    inline: true,
+                    dateFormat: "dd/mm/yy"
+                });
+                $(".button").button();
+            });
+        </script>
     </h:head>
     <h:body>
         <ui:include src="include/header.xhtml"/>

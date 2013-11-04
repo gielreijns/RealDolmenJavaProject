@@ -15,6 +15,7 @@
                         inline: true,
                         dateFormat: "dd/mm/yy"
                     });
+                    $(".button").button();
                 });
             </script>
         </h:head>
@@ -40,10 +41,6 @@
                                         <f:selectItem itemLabel="vervoerswijzes" />
                                         <f:selectItem itemLabel="ophalen" />
                                     </h:selectOneMenu>
-
-                                    
-
-                                    <span></span>
                                     
                                     <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
                                     <h:inputText id="periodestart" class="datepicker"/>
@@ -51,6 +48,9 @@
                                     <h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
                                     <h:inputText id="periodeeinde" class="datepicker"/>
 
+                                    <h:outputLabel></h:outputLabel>
+                                    
+                                    <h:commandButton value="Zoeken" class="button"/>
                                 </h:panelGrid>
                             </fieldset>
                         </h:form>
