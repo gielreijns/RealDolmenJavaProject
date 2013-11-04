@@ -66,6 +66,30 @@ public class Gemeente implements Serializable {
     public Gemeente() {
     }
 
+    public Gebruiker getGebruiker() {
+        return gebruiker;
+    }
+
+    public void setGebruiker(Gebruiker gebruiker) {
+        this.gebruiker = gebruiker;
+    }
+
+    public Reis getReis() {
+        return reis;
+    }
+
+    public void setReis(Reis reis) {
+        this.reis = reis;
+    }
+
+    public Vertrekplaats getVertrekplaats() {
+        return vertrekplaats;
+    }
+
+    public void setVertrekplaats(Vertrekplaats vertrekplaats) {
+        this.vertrekplaats = vertrekplaats;
+    }
+
     public Integer getId() {
         return id;
     }
