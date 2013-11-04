@@ -49,6 +49,10 @@ public class Gemeente implements Serializable {
     @NotNull
     @Column(name = "postcode")
     private String postcode;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "isBestemming")
+    private boolean isBestemming;
     @ManyToOne
     private Land land;
     @OneToMany(mappedBy = "gemeente")
@@ -57,7 +61,7 @@ public class Gemeente implements Serializable {
     @OneToMany(mappedBy = "gemeente")
     private List<Vertrekplaats> vertrekplaatsen;
     @ManyToOne
-    @JoinColumn(name="gemeenteId")
+    
     private Gebruiker gebruiker;
     @JoinTable(
       name="reizenpergebruiker",
@@ -66,8 +70,18 @@ public class Gemeente implements Serializable {
     private List<Reis> reizen;
     @ManyToOne
     private Vertrekplaats vertrekplaats;
+    
+    
 
     public Gemeente() {
+    }
+
+    public boolean isIsBestemming() {
+        return isBestemming;
+    }
+
+    public void setIsBestemming(boolean isBestemming) {
+        this.isBestemming = isBestemming;
     }
 
     public Gebruiker getGebruiker() {

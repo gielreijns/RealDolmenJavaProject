@@ -25,7 +25,7 @@ import javax.validation.constraints.NotNull;
  * @author Bruno
  */
 @Entity
-@Table(name = "gebruiker")
+@Table(name = "vertrekplaats")
 @NamedQueries({
     
 })
