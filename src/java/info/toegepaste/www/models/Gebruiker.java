@@ -72,14 +72,11 @@ public class Gebruiker implements Serializable {
     
     @ManyToOne
     private Gemeente gemeente;
-    
-    
-    
+
     @ManyToMany
     private List<Reis> reizen;
     
-    @OneToMany(mappedBy = "gebruiker")
-    private List<Gemeente> gemeentes;
+    
 
     public Gebruiker() {
     }

@@ -79,13 +79,9 @@ public class Reis implements Serializable {
     @ManyToMany(mappedBy = "reizen")
     private List<Gebruiker> gebruikers;
     
-    @OneToMany(mappedBy = "reis")
-    private List<Vervoerswijze> vervoerswijzes;
+   
     
-    @OneToMany(mappedBy = "reis")
-    private List<Gemeente> gemeentes;
-    @ManyToOne
-    private Gebruiker gebruiker;
+    
 
     public Reis() {
     }

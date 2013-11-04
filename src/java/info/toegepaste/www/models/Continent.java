@@ -41,7 +41,7 @@ public class Continent implements Serializable {
     @Column(name = "naam")
     private String naam;
     
-    @OneToMany(mappedBy = "continent")
+    
     @ManyToMany(mappedBy = "continenten")
     private List<Land> landen;
 

@@ -40,11 +40,10 @@ public class Vervoerswijze implements Serializable {
     @Column(name = "naam")
     private String naam;
     
-    @ManyToMany
+   
     @OneToMany(mappedBy = "vervoerswijze")
     private List<Reis> reizen;
-    @ManyToOne
-    private Reis reis;
+    
 
     public Vervoerswijze() {
     }

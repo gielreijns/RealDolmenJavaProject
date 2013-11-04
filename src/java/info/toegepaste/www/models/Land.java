@@ -48,8 +48,7 @@ public class Land implements Serializable {
     
     @OneToMany(mappedBy = "land")
     private List<Gemeente> gemeenten;
-    @ManyToOne
-    private Continent continent;
+    
 
     public Land() {
     }

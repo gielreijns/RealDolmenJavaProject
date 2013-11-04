@@ -55,8 +55,7 @@ public class Vertrekplaats implements Serializable {
     @OneToMany(mappedBy = "vertrekplaats")
     private List<Reis> reizen;
     
-    @OneToMany(mappedBy = "vertrekplaats")
-    private List<Gemeente> gemeentes;
+    
 
     public Vertrekplaats() {
     }
