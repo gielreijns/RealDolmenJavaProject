@@ -9,6 +9,7 @@ package info.toegepaste.www.services;
 import info.toegepaste.www.model.Gemeente;
 import info.toegepaste.www.model.Land;
 import java.util.List;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,11 +21,16 @@ public class GemeenteServiceImpl implements GemeenteService {
     @PersistenceContext
     private EntityManager entityManager;
     
+//    @Inject
+//    private GemeenteService gemeenteService;
+    
+    @Override
     public List<Gemeente> getAllGemeentes() {
         Query query = entityManager.createNamedQuery("Gemeente.getAll");
         return query.getResultList();
     }
     
+    @Override
     public List<Gemeente> getAllGemeentesByLand(Land land) {
         Query query = entityManager.createNamedQuery("Gemeente.getAllByLand");
         query.setParameter("land", land);
