@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -37,8 +39,12 @@ public class Vervoerswijze implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reis")
+    
+    @ManyToMany
+    @OneToMany(mappedBy = "vervoerswijze")
     private List<Reis> reizen;
+    @ManyToOne
+    private Reis reis;
 
     public Vervoerswijze() {
     }

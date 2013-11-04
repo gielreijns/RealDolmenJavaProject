@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.OneToMany;
@@ -47,11 +48,15 @@ public class Vertrekplaats implements Serializable {
     @NotNull
     @Column(name = "nummer")
     private String nummer;
-    @JoinColumn(name = "gemeenteId", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    
+    @ManyToOne
     private Gemeente gemeente;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reis")
+    
+    @OneToMany(mappedBy = "vertrekplaats")
     private List<Reis> reizen;
+    
+    @OneToMany(mappedBy = "vertrekplaats")
+    private List<Gemeente> gemeentes;
 
     public Vertrekplaats() {
     }

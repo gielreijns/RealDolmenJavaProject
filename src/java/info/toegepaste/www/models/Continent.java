@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -39,7 +40,9 @@ public class Continent implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "land")
+    
+    @OneToMany(mappedBy = "continent")
+    @ManyToMany(mappedBy = "continenten")
     private List<Land> landen;
 
     public Continent() {

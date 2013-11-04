@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -38,10 +40,16 @@ public class Land implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "continent")
+    
+    
+    @ManyToMany
     private List<Continent> continenten;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gemeente")
+    
+    
+    @OneToMany(mappedBy = "land")
     private List<Gemeente> gemeenten;
+    @ManyToOne
+    private Continent continent;
 
     public Land() {
     }
