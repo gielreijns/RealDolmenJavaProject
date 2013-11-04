@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition xmlns="http://www.w3.org/1999/xhtml">
+        <h:head>
+            <title>RD Travelshop | Zoeken</title>
+            <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+            <link href="styles/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+            <script src="js/jquery-1.8.3.js"></script>
+            <script src="js/jquery-ui-1.9.2.custom.js"></script>
+            <script>
+                $(function() {
+                    $(".datepicker").datepicker({
+                        inline: true,
+                        dateFormat: "dd/mm/yy"
+                    });
+                });
+            </script>
+        </h:head>
+        <h:body>
+            <ui:include src="include/header.xhtml"/>
+            <div class="wrapper">
+                <div class="container">
+                    <div class="whitebox" id="hpage_services">
+
+                        <h3>Zoeken</h3>
+                        <h:form>
+                            <fieldset>  
+                                <h:panelGrid columns="6">
+                                    <h:outputLabel for="bestemming">Bestemming:</h:outputLabel>
+                                    <h:inputText id="bestemming"/>
+
+                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen:</h:outputLabel>
+                                    <h:inputText id="plaatsen" />
+
+                                    <h:outputLabel for="vervoerswijze">Vervoerswijze:</h:outputLabel>
+                                    <h:selectOneMenu id="vervoerswijze" value="Hier nog">
+                                        <f:selectItem itemLabel="Hier nog" />
+                                        <f:selectItem itemLabel="vervoerswijzes" />
+                                        <f:selectItem itemLabel="ophalen" />
+                                    </h:selectOneMenu>
+
+                                    
+
+                                    <span></span>
+                                    
+                                    <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
+                                    <h:inputText id="periodestart" class="datepicker"/>
+
+                                    <h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
+                                    <h:inputText id="periodeeinde" class="datepicker"/>
+
+                                </h:panelGrid>
+                            </fieldset>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+            <ui:include src="include/footer.xhtml"/>
+        </h:body>
+    </ui:composition>
+</html>                
