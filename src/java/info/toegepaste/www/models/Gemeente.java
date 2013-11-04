@@ -30,9 +30,10 @@ import javax.validation.constraints.NotNull;
 @Table(name = "gemeente")
 @NamedQueries({
     @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g"),
-        @NamedQuery(name = "Gemeente.getAllByLand", query = "SELECT g FROM Gemeente g WHERE g.land = :land")
+    @NamedQuery(name = "Gemeente.getAllByLand", query = "SELECT g FROM Gemeente g WHERE g.land = :land")
 })
 public class Gemeente implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,20 +48,12 @@ public class Gemeente implements Serializable {
     @NotNull
     @Column(name = "postcode")
     private int postcode;
-    
-    
     @ManyToOne
     private Land land;
-    
-    
     @OneToMany(mappedBy = "gemeente")
     private List<Gebruiker> gebruikers;
-    
-    
     @OneToMany(mappedBy = "gemeente")
     private List<Reis> reizen;
-    
-    
     @OneToMany(mappedBy = "gemeente")
     private List<Vertrekplaats> vertrekplaatsen;
     @ManyToOne
