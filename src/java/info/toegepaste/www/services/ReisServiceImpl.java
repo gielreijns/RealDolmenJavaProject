@@ -22,53 +22,46 @@ import javax.persistence.Query;
 public class ReisServiceImpl implements ReisService {
     @PersistenceContext
     private EntityManager entityManager;
-    private List resultList;
     
     @Override
     public List<Reis> getAllReizen() {
         Query query = entityManager.createNamedQuery("Reis.getAll");
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
     public List<Reis> getReisByGemeente(Gemeente gemeente) {
         Query query = entityManager.createNamedQuery("Reis.getByGemeente");
         query.setParameter("gemeente", gemeente);
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
     public List<Reis> getReisByAantalPlaatsen(Integer aantalPlaatsen) {
         Query query = entityManager.createNamedQuery("Reis.getByAantalPlaatsen");
         query.setParameter("aantalPlaatsen", aantalPlaatsen);
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
     public List<Reis> getReisByVervoerswijze(Vervoerswijze vervoerswijze) {
         Query query = entityManager.createNamedQuery("Reis.getByVervoerswijze");
         query.setParameter("vervoerswijze", vervoerswijze);
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
     public List<Reis> getReisByVertrekdatum(Date vertrekdatum) {
         Query query = entityManager.createNamedQuery("Reis.getByVertrekdatum");
         query.setParameter("vertrekdatum", vertrekdatum);
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
     public List<Reis> getReisByTerugkeerdatum(Date terugkeerdatum) {
         Query query = entityManager.createNamedQuery("Reis.getTerugkeerdatum");
         query.setParameter("terugkeerdatum", terugkeerdatum);
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
@@ -76,8 +69,7 @@ public class ReisServiceImpl implements ReisService {
         Query query = entityManager.createNamedQuery("Reis.getByReisPeriode");
         query.setParameter("vertrekdatum", vertrekdatum);
         query.setParameter("terugkeerdatum", terugkeerdatum);
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
@@ -88,7 +80,6 @@ public class ReisServiceImpl implements ReisService {
         query.setParameter("vervoerswijze", vervoerswijze);
         query.setParameter("vertrekdatum", vertrekdatum);
         query.setParameter("terugkeerdatum", terugkeerdatum);
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 }

@@ -19,12 +19,10 @@ public class ContinentServiceImpl implements ContinentService {
 
     @PersistenceContext
     private EntityManager entityManager;
-    private List resultList;
 
     @Override
     public List<Continent> getAllContinenten() {
         Query query = entityManager.createNamedQuery("Continent.getAll");
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 }

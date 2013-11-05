@@ -20,7 +20,6 @@ import javax.persistence.Query;
 public class GemeenteServiceImpl implements GemeenteService {
     @PersistenceContext
     private EntityManager entityManager;
-    private List resultList;
     
 //    @Inject
 //    private GemeenteService gemeenteService;
@@ -28,8 +27,7 @@ public class GemeenteServiceImpl implements GemeenteService {
     @Override
     public List<Gemeente> getAllGemeentes() {
         Query query = entityManager.createNamedQuery("Gemeente.getAll");
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
     
     @Override
@@ -41,15 +39,13 @@ public class GemeenteServiceImpl implements GemeenteService {
     
     @Override
     public List<Gemeente> getAllBestemmingen() {
-        Query query = entityManager.createNamedQuery("Gemeente.getAllBestemmingen");
-        resultList = query.getResultList();
-        return resultList;
+        Query query = entityManager.createNamedQuery("Gemeente.getAllBestemmingen");;
+        return query.getResultList();
     }
     
     @Override
     public List<Gemeente> getAllNietBestemmingen() {
         Query query = entityManager.createNamedQuery("Gemeente.getAllNietBestemmingen");
-        resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 }
