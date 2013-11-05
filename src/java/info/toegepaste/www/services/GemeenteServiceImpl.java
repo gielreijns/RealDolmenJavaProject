@@ -38,4 +38,18 @@ public class GemeenteServiceImpl implements GemeenteService {
         query.setParameter("land", land);
         return query.getResultList();
     }
+    
+    @Override
+    public List<Gemeente> getAllBestemmingen() {
+        Query query = entityManager.createNamedQuery("Gemeente.getAllBestemmingen");
+        resultList = query.getResultList();
+        return resultList;
+    }
+    
+    @Override
+    public List<Gemeente> getAllNietBestemmingen() {
+        Query query = entityManager.createNamedQuery("Gemeente.getAllNietBestemmingen");
+        resultList = query.getResultList();
+        return resultList;
+    }
 }

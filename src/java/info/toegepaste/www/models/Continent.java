@@ -27,7 +27,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "continent")
 @NamedQueries({
-    
+    @NamedQuery(name = "Continent.getAll", query = "SELECT c FROM Continent c")
 })
 public class Continent implements Serializable {
     private static final long serialVersionUID = 1L;

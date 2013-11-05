@@ -24,12 +24,14 @@ public class ReisServiceImpl implements ReisService {
     private EntityManager entityManager;
     private List resultList;
     
+    @Override
     public List<Reis> getAllReizen() {
         Query query = entityManager.createNamedQuery("Reis.getAll");
         resultList = query.getResultList();
         return resultList;
     }
     
+    @Override
     public List<Reis> getReisByGemeente(Gemeente gemeente) {
         Query query = entityManager.createNamedQuery("Reis.getByGemeente");
         query.setParameter("gemeente", gemeente);
@@ -37,6 +39,7 @@ public class ReisServiceImpl implements ReisService {
         return resultList;
     }
     
+    @Override
     public List<Reis> getReisByAantalPlaatsen(Integer aantalPlaatsen) {
         Query query = entityManager.createNamedQuery("Reis.getByAantalPlaatsen");
         query.setParameter("aantalPlaatsen", aantalPlaatsen);
@@ -44,6 +47,7 @@ public class ReisServiceImpl implements ReisService {
         return resultList;
     }
     
+    @Override
     public List<Reis> getReisByVervoerswijze(Vervoerswijze vervoerswijze) {
         Query query = entityManager.createNamedQuery("Reis.getByVervoerswijze");
         query.setParameter("vervoerswijze", vervoerswijze);
@@ -51,6 +55,7 @@ public class ReisServiceImpl implements ReisService {
         return resultList;
     }
     
+    @Override
     public List<Reis> getReisByVertrekdatum(Date vertrekdatum) {
         Query query = entityManager.createNamedQuery("Reis.getByVertrekdatum");
         query.setParameter("vertrekdatum", vertrekdatum);
@@ -58,6 +63,7 @@ public class ReisServiceImpl implements ReisService {
         return resultList;
     }
     
+    @Override
     public List<Reis> getReisByTerugkeerdatum(Date terugkeerdatum) {
         Query query = entityManager.createNamedQuery("Reis.getTerugkeerdatum");
         query.setParameter("terugkeerdatum", terugkeerdatum);
@@ -65,6 +71,7 @@ public class ReisServiceImpl implements ReisService {
         return resultList;
     }
     
+    @Override
     public List<Reis> getReisByReisPeriode(Date vertrekdatum, Date terugkeerdatum) {
         Query query = entityManager.createNamedQuery("Reis.getByReisPeriode");
         query.setParameter("vertrekdatum", vertrekdatum);
@@ -73,6 +80,7 @@ public class ReisServiceImpl implements ReisService {
         return resultList;
     }
     
+    @Override
     public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze, Date vertrekdatum, Date terugkeerdatum) {
         Query query = entityManager.createNamedQuery("Reis.getByAllZoekParameters");
         query.setParameter("gemeente", gemeente);

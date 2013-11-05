@@ -6,7 +6,6 @@
 package info.toegepaste.www.services;
 
 import info.toegepaste.www.models.Continent;
-import info.toegepaste.www.models.Land;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,21 +15,16 @@ import javax.persistence.Query;
  *
  * @author Bruno
  */
-public class LandServiceImpl implements LandService {
+public class ContinentServiceImpl implements ContinentService {
 
     @PersistenceContext
     private EntityManager entityManager;
+    private List resultList;
 
     @Override
-    public List<Land> getAllLanden() {
-        Query query = entityManager.createNamedQuery("Land.getAll");
-        return query.getResultList();
-    }
-
-    @Override
-    public List<Land> getAllLandenByContinent(Continent continent) {
-        Query query = entityManager.createNamedQuery("Land.getAllByContinent");
-        query.setParameter("continent", continent);
-        return query.getResultList();
+    public List<Continent> getAllContinenten() {
+        Query query = entityManager.createNamedQuery("Continent.getAll");
+        resultList = query.getResultList();
+        return resultList;
     }
 }

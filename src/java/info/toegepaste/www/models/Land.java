@@ -20,6 +20,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
 /**
  *
  * @author Bruno
@@ -27,9 +28,11 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "land")
 @NamedQueries({
-@NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l")
+    @NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l"),
+    @NamedQuery(name = "Land.getAllByContinent", query = "SELECT l FROM Land l WHERE l.continenten = continent")
 })
 public class Land implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,15 +43,12 @@ public class Land implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    
-    
+
     @ManyToMany
     private List<Continent> continenten;
-    
-    
+
     @OneToMany(mappedBy = "land")
     private List<Gemeente> gemeenten;
-    
 
     public Land() {
     }
@@ -60,7 +60,7 @@ public class Land implements Serializable {
     public void setGemeenten(List<Gemeente> gemeenten) {
         this.gemeenten = gemeenten;
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -89,7 +89,7 @@ public class Land implements Serializable {
     public String toString() {
         return "Land{" + "id=" + id + ", naam=" + naam + ", continenten=" + continenten + ", gemeenten=" + gemeenten + '}';
     }
-    
+
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set

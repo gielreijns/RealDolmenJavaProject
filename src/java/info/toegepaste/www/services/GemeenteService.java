@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package info.toegepaste.www.services;
 
 import info.toegepaste.www.models.Gemeente;
@@ -15,6 +14,12 @@ import java.util.List;
  * @author Bruno
  */
 public interface GemeenteService {
+
     public List<Gemeente> getAllGemeentes();
+
     public List<Gemeente> getAllGemeentesByLand(Land land);
+
+    public List<Gemeente> getAllBestemmingen();
+
+    public List<Gemeente> getAllNietBestemmingen();
 }
