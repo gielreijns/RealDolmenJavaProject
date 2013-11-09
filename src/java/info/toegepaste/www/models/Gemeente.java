@@ -55,59 +55,44 @@ public class Gemeente implements Serializable {
     @NotNull
     @Column(name = "isBestemming")
     private boolean isBestemming;
+    
     @ManyToOne
     private Land land;
+    
+    
+    
+//    @JoinTable(
+//      name="reizenpergebruiker",
+//      joinColumns={@JoinColumn(name="gebruikerId", referencedColumnName="ID")},
+//      inverseJoinColumns={@JoinColumn(name="reisId", referencedColumnName="ID")})
     @OneToMany(mappedBy = "gemeente")
     private List<Gebruiker> gebruikers;
-   
+    @OneToMany(mappedBy = "gemeente")
+    private List<Reis> reizen;
     @OneToMany(mappedBy = "gemeente")
     private List<Vertrekplaats> vertrekplaatsen;
-    @ManyToOne
     
-    private Gebruiker gebruiker;
-    @JoinTable(
-      name="reizenpergebruiker",
-      joinColumns={@JoinColumn(name="gebruikerId", referencedColumnName="ID")},
-      inverseJoinColumns={@JoinColumn(name="reisId", referencedColumnName="ID")})
-    private List<Reis> reizen;
-    @ManyToOne
-    private Vertrekplaats vertrekplaats;
+   
     
     
 
     public Gemeente() {
     }
 
-    public boolean isIsBestemming() {
-        return isBestemming;
+    public List<Gebruiker> getGebruikers() {
+        return gebruikers;
     }
 
-    public void setIsBestemming(boolean isBestemming) {
-        this.isBestemming = isBestemming;
+    public void setGebruikers(List<Gebruiker> gebruikers) {
+        this.gebruikers = gebruikers;
     }
 
-    public Gebruiker getGebruiker() {
-        return gebruiker;
+    public List<Reis> getReizen() {
+        return reizen;
     }
 
-    public void setGebruiker(Gebruiker gebruiker) {
-        this.gebruiker = gebruiker;
-    }
-
-    public Vertrekplaats getVertrekplaats() {
-        return vertrekplaats;
-    }
-
-    public void setVertrekplaats(Vertrekplaats vertrekplaats) {
-        this.vertrekplaats = vertrekplaats;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setReizen(List<Reis> reizen) {
+        this.reizen = reizen;
     }
 
     public List<Vertrekplaats> getVertrekplaatsen() {
@@ -118,12 +103,12 @@ public class Gemeente implements Serializable {
         this.vertrekplaatsen = vertrekplaatsen;
     }
 
-    public List<Reis> getReizen() {
-        return reizen;
+    public Integer getId() {
+        return id;
     }
 
-    public void setReizen(List<Reis> reizen) {
-        this.reizen = reizen;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNaam() {
@@ -142,6 +127,14 @@ public class Gemeente implements Serializable {
         this.postcode = postcode;
     }
 
+    public boolean isIsBestemming() {
+        return isBestemming;
+    }
+
+    public void setIsBestemming(boolean isBestemming) {
+        this.isBestemming = isBestemming;
+    }
+
     public Land getLand() {
         return land;
     }
@@ -150,17 +143,13 @@ public class Gemeente implements Serializable {
         this.land = land;
     }
 
-    public List<Gebruiker> getGebruikers() {
-        return gebruikers;
-    }
+    
 
-    public void setGebruikers(List<Gebruiker> gebruikers) {
-        this.gebruikers = gebruikers;
-    }
+    
 
     @Override
     public String toString() {
-        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", land=" + land + ", gebruikers=" + gebruikers + ", reizen=" + reizen + ", vertrekplaatsen=" + vertrekplaatsen + '}';
+        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", land=" + land + ", gebruikers=" +  '}';
     }
 
     @Override

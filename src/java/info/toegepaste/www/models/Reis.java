@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -22,6 +23,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -32,14 +34,14 @@ import javax.validation.constraints.NotNull;
 @Table(name = "reis")
 @NamedQueries({
     @NamedQuery(name = "Reis.getAll", query = "SELECT r from Reis r"),
-@NamedQuery(name = "Reis.getAll", query = "SELECT r from Reis r WHERE r.naam = :naam"),
+@NamedQuery(name = "Reis.getByNaam", query = "SELECT r from Reis r WHERE r.naam = :naam"),
 @NamedQuery(name = "Reis.getByGemeente", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente"),
 @NamedQuery(name = "Reis.getByAantalPlaatsen", query = "SELECT r from Reis r WHERE r.aantalPlaatsen >= :aantalPlaatsen"),
 @NamedQuery(name = "Reis.getByVervoerswijze", query = "SELECT r from Reis r WHERE r.vervoerswijze = :vervoerswijze"),
 @NamedQuery(name = "Reis.getByVertrekdatum", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum"),
 @NamedQuery(name = "Reis.getTerugkeerdatum", query = "SELECT r from Reis r WHERE r.terugkeerdatum = :terugkeerdatum"),
 @NamedQuery(name = "Reis.getByReisPeriode", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum AND r.terugkeerdatum = :terugkeerdatum"),
-@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE naam = :naam AND r.gemeente = :gemeente AND r.aantalPlaatsen >= :aantalPlaatsen AND "
+@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE r.naam = :naam AND r.gemeente = :gemeente AND r.aantalPlaatsen >= :aantalPlaatsen AND "
         + "r.vervoerswijze = :vervoerswijze AND r.vertrekdatum = :vertrekdatum AND r.terugkeerdatum = :terugkeerdatum")
 })
 public class Reis implements Serializable {
@@ -79,15 +81,14 @@ public class Reis implements Serializable {
 
     @ManyToOne
     private Gemeente gemeente;
-
+    
     @ManyToOne
     private Vervoerswijze vervoerswijze;
-
+    
     @ManyToOne
     private Vertrekplaats vertrekplaats;
-
-    @ManyToMany(mappedBy = "reizen")
-    private List<Gebruiker> gebruikers;
+    
+    
 
     public Reis() {
     }
@@ -171,6 +172,8 @@ public class Reis implements Serializable {
     public void setVertrekplaats(Vertrekplaats vertrekplaats) {
         this.vertrekplaats = vertrekplaats;
     }
+
+   
 
     @Override
     public String toString() {

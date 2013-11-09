@@ -49,16 +49,22 @@ public class Vertrekplaats implements Serializable {
     @Column(name = "nummer")
     private String nummer;
     
-    
     @ManyToOne
     private Gemeente gemeente;
-    
     @OneToMany(mappedBy = "vertrekplaats")
     private List<Reis> reizen;
-    
+   
     
 
     public Vertrekplaats() {
+    }
+
+    public List<Reis> getReizen() {
+        return reizen;
+    }
+
+    public void setReizen(List<Reis> reizen) {
+        this.reizen = reizen;
     }
 
     public Integer getId() {
@@ -101,17 +107,11 @@ public class Vertrekplaats implements Serializable {
         this.gemeente = gemeente;
     }
 
-    public List<Reis> getReizen() {
-        return reizen;
-    }
-
-    public void setReizen(List<Reis> reizen) {
-        this.reizen = reizen;
-    }
+    
 
     @Override
     public String toString() {
-        return "Vertrekplaats{" + "id=" + id + ", naam=" + naam + ", straat=" + straat + ", nummer=" + nummer + ", gemeente=" + gemeente + ", reizen=" + reizen + '}';
+        return "Vertrekplaats{" + "id=" + id + ", naam=" + naam + ", straat=" + straat + ", nummer=" + nummer + ", gemeente=" + gemeente + '}';
     }
     
     @Override

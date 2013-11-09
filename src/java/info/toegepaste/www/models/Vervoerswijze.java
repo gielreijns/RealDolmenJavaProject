@@ -40,13 +40,22 @@ public class Vervoerswijze implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    
-   
     @OneToMany(mappedBy = "vervoerswijze")
     private List<Reis> reizen;
     
+   
+   
+    
 
     public Vervoerswijze() {
+    }
+
+    public List<Reis> getReizen() {
+        return reizen;
+    }
+
+    public void setReizen(List<Reis> reizen) {
+        this.reizen = reizen;
     }
 
     public Integer getId() {
@@ -65,17 +74,11 @@ public class Vervoerswijze implements Serializable {
         this.naam = naam;
     }
 
-    public List<Reis> getReizen() {
-        return reizen;
-    }
-
-    public void setReizen(List<Reis> reizen) {
-        this.reizen = reizen;
-    }
+    
 
     @Override
     public String toString() {
-        return "Vervoerswijze{" + "id=" + id + ", naam=" + naam + ", reizen=" + reizen + '}';
+        return "Vervoerswijze{" + "id=" + id + ", naam=" + naam + '}';
     }
     
     @Override

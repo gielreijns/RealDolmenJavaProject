@@ -17,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -69,13 +70,12 @@ public class Gebruiker implements Serializable {
     @NotNull
     @Column(name = "nummer")
     private String nummer;
-    
-    
+
     @ManyToOne
     private Gemeente gemeente;
+    
 
-    @ManyToMany
-    private List<Reis> reizen;
+   
     
     
 
@@ -154,17 +154,10 @@ public class Gebruiker implements Serializable {
         this.gemeente = gemeente;
     }
 
-    public List<Reis> getReizen() {
-        return reizen;
-    }
-
-    public void setReizen(List<Reis> reizen) {
-        this.reizen = reizen;
-    }
-
+    
     @Override
     public String toString() {
-        return "Gebruiker{" + "id=" + id + ", voornaam=" + voornaam + ", naam=" + naam + ", telefoon=" + telefoon + ", email=" + email + ", wachtwoord=" + wachtwoord + ", straat=" + straat + ", nummer=" + nummer + ", reizen=" + reizen + '}';
+        return "Gebruiker{" + "id=" + id + ", voornaam=" + voornaam + ", naam=" + naam + ", telefoon=" + telefoon + ", email=" + email + ", wachtwoord=" + wachtwoord + ", straat=" + straat + ", nummer=" + nummer + '}';
     }
     
     @Override

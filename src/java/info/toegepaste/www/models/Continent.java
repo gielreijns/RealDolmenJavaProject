@@ -40,20 +40,10 @@ public class Continent implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    
-    
-    @ManyToMany(mappedBy = "continenten")
-    private List<Land> landen;
+    @ManyToMany(mappedBy = "continent")
+    private List<Land> land;
 
     public Continent() {
-    }
-
-    public List<Land> getLanden() {
-        return landen;
-    }
-
-    public void setLanden(List<Land> landen) {
-        this.landen = landen;
     }
 
     public Integer getId() {
@@ -71,6 +61,9 @@ public class Continent implements Serializable {
     public void setNaam(String naam) {
         this.naam = naam;
     }
+    
+    
+  
 
     @Override
     public boolean equals(Object object) {

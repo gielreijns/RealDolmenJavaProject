@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -28,8 +30,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "land")
 @NamedQueries({
-    @NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l"),
-    @NamedQuery(name = "Land.getAllByContinent", query = "SELECT l FROM Land l WHERE l.continenten = continent")
+    @NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l")
+    
 })
 public class Land implements Serializable {
 
@@ -43,22 +45,13 @@ public class Land implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
+    
+   @ManyToMany
+   private List<Continent> continent;
 
-    @ManyToMany
-    private List<Continent> continenten;
-
-    @OneToMany(mappedBy = "land")
-    private List<Gemeente> gemeenten;
+    
 
     public Land() {
-    }
-
-    public List<Gemeente> getGemeenten() {
-        return gemeenten;
-    }
-
-    public void setGemeenten(List<Gemeente> gemeenten) {
-        this.gemeenten = gemeenten;
     }
 
     public Integer getId() {
@@ -77,17 +70,11 @@ public class Land implements Serializable {
         this.naam = naam;
     }
 
-    public List<Continent> getContinenten() {
-        return continenten;
-    }
-
-    public void setContinenten(List<Continent> continenten) {
-        this.continenten = continenten;
-    }
+    
 
     @Override
     public String toString() {
-        return "Land{" + "id=" + id + ", naam=" + naam + ", continenten=" + continenten + ", gemeenten=" + gemeenten + '}';
+        return "Land{" + "id=" + id + ", naam=" + naam + ", continenten=" +  '}';
     }
 
     @Override
