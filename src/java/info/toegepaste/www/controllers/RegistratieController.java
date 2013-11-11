@@ -7,7 +7,9 @@
 package info.toegepaste.www.controllers;
 
 import info.toegepaste.www.models.Gemeente;
+import info.toegepaste.www.models.Land;
 import info.toegepaste.www.services.GemeenteService;
+import info.toegepaste.www.services.LandService;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -25,9 +27,12 @@ public class RegistratieController implements Serializable{
     
     @Inject
     private GemeenteService gemeenteService;
+    @Inject 
+    private LandService landService;
     @Inject
     private RegistratieController registratieController;
     private Integer selectedGemeenteId;
+    private Integer selectedLandId;
     private String voornaam;
     private String naam;
     private Integer telefoon;
@@ -35,6 +40,22 @@ public class RegistratieController implements Serializable{
     private String straatnummer;
     private String email;
     private String wachtwoord;
+
+    public Integer getSelectedLandId() {
+        return selectedLandId;
+    }
+
+    public void setSelectedLandId(Integer selectedLandId) {
+        this.selectedLandId = selectedLandId;
+    }
+
+    public LandService getLandService() {
+        return landService;
+    }
+
+    public void setLandService(LandService landService) {
+        this.landService = landService;
+    }
 
     public GemeenteService getGemeenteService() {
         return gemeenteService;
@@ -120,6 +141,9 @@ public class RegistratieController implements Serializable{
         
     public List<Gemeente> getGemeentes(){
         return gemeenteService.getAllGemeentes();
+    }
+    public List<Land> getLanden(){
+        return landService.getAllLanden();
     }
     
     

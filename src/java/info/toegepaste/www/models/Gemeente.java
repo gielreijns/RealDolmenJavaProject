@@ -61,10 +61,7 @@ public class Gemeente implements Serializable {
     
     
     
-//    @JoinTable(
-//      name="reizenpergebruiker",
-//      joinColumns={@JoinColumn(name="gebruikerId", referencedColumnName="ID")},
-//      inverseJoinColumns={@JoinColumn(name="reisId", referencedColumnName="ID")})
+
     @OneToMany(mappedBy = "gemeente")
     private List<Gebruiker> gebruikers;
     @OneToMany(mappedBy = "gemeente")
