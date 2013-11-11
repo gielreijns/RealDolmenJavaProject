@@ -71,9 +71,9 @@
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel></h:outputLabel>
                             <h:outputLabel>Gemeente: </h:outputLabel>
-                            <h:selectOneMenu value="#{gemeenteController.selectedGemeenteId}" id="gemeentes" tabindex="6">
+                            <h:selectOneMenu value="#{registratieController.selectedGemeenteId}" id="gemeentes" tabindex="6">
                                 <f:selectItem itemLabel="- Selecteer -" />
-                                <f:selectItems value="#{gemeenteController.gemeentes}" var="gemeente" itemLabel="#{gemeente.naam}" itemValue="#{gemeente.id}" />
+                                <f:selectItems value="#{registratieController.gemeentes}" var="gemeente" itemLabel="#{gemeente.naam}" itemValue="#{gemeente.id}" />
 
                             </h:selectOneMenu>
                             <h:messages layout="table" for="gemeente" style="Color: red"/>
