@@ -32,6 +32,7 @@ public class RegistratieController implements Serializable{
     @Inject
     private RegistratieController registratieController;
     private Integer selectedGemeenteId;
+    private Land land;
     private Integer selectedLandId;
     private String voornaam;
     private String naam;
@@ -141,6 +142,15 @@ public class RegistratieController implements Serializable{
         
     public List<Gemeente> getGemeentes(){
         return gemeenteService.getAllGemeentes();
+    }
+    public List<Gemeente> getGemeentesFromLand() {
+        if (selectedLandId == null) {
+            return null;
+        } else {
+            land = new Land();
+            land.setId(selectedLandId);
+            return gemeenteService.getAllGemeentesVanLand(land);
+        }
     }
     public List<Land> getLanden(){
         return landService.getAllLanden();

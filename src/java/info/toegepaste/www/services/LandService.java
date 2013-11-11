@@ -6,6 +6,7 @@
 package info.toegepaste.www.services;
 
 import info.toegepaste.www.models.Continent;
+import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Land;
 import java.util.List;
 
@@ -16,6 +17,6 @@ import java.util.List;
 public interface LandService {
 
     public List<Land> getAllLanden();
-
+    
     public List<Land> getAllLandenByContinent(Continent continent);
 }

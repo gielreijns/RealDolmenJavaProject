@@ -6,6 +6,7 @@
 package info.toegepaste.www.services;
 
 import info.toegepaste.www.models.Continent;
+import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Land;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -33,4 +34,6 @@ public class LandServiceImpl implements LandService {
         query.setParameter("continent", continent);
         return query.getResultList();
     }
+    
+   
 }

@@ -31,7 +31,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "gemeente")
 @NamedQueries({
     @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g"),
-    @NamedQuery(name = "Gemeente.getAllByLand", query = "SELECT g FROM Gemeente g WHERE g.land = :land"),
+    @NamedQuery(name = "Gemeente.getAllFromLand", query = "SELECT g FROM Gemeente g WHERE g.land = :land"),
     @NamedQuery(name = "Gemeente.getAllBestemmingen", query = "SELECT g FROM Gemeente g WHERE g.isBestemming = true"),
     @NamedQuery(name = "Gemeente.getAllNietBestemmingen", query = "SELECT g FROM Gemeente g WHERE g.isBestemming = false")
 })

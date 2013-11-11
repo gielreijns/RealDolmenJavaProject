@@ -17,7 +17,7 @@ public interface GemeenteService {
 
     public List<Gemeente> getAllGemeentes();
 
-    public List<Gemeente> getAllGemeentesByLand(Land land);
+    public List<Gemeente> getAllGemeentesVanLand(Land land);
 
     public List<Gemeente> getAllBestemmingen();
 
