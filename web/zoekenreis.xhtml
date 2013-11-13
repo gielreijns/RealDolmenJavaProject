@@ -37,9 +37,8 @@
 
                                     <h:outputLabel for="vervoerswijze">Vervoerswijze:</h:outputLabel>
                                     <h:selectOneMenu id="vervoerswijze" value="Hier nog">
-                                        <f:selectItem itemLabel="Hier nog" />
-                                        <f:selectItem itemLabel="vervoerswijzes" />
-                                        <f:selectItem itemLabel="ophalen" />
+                                        <f:selectItem itemLabel="- Selecteer -" />
+                                        <f:selectItems value="#{VervoerswijzeController.vervoerswijzen}" var="vervoerswijze" itemLabel="#{vervoerswijze.naam}" itemValue="#{vervoerswijze.id}" />
                                     </h:selectOneMenu>
 
                                     <h:outputLabel for="periodestart">Periode start:</h:outputLabel>

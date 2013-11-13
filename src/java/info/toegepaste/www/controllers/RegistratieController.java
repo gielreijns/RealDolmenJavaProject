@@ -23,8 +23,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class RegistratieController implements Serializable{
-    
-    
+
     @Inject
     private GemeenteService gemeenteService;
     @Inject 
