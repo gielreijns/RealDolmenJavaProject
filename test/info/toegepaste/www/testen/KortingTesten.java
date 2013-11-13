@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package info.toegepaste.www.testen;
 
 import info.toegepaste.www.models.Korting;
@@ -19,53 +18,45 @@ import static org.junit.Assert.*;
  * @author Bruno
  */
 public class KortingTesten {
+
     public Korting korting;
-    
+
     public KortingTesten() {
     }
-    
+
     @Test
     public void testPercentageBoven100() {
         int percentage = 101;
-        double bedrag = 10.5;
-        double resultaat;
-        
+        int bedrag = 100;
+        int resultaat;
+
         resultaat = korting.calculateKorting(bedrag, percentage);
         
-        assertEquals(bedrag, resultaat);  
+        System.out.println(bedrag + " " + resultaat + "bruno test");
+
+        assertEquals(bedrag, resultaat);
     }
-    
+
     @Test
     public void testPercentageKleinerDan1() {
-        int percentage = -1;
-        double bedrag = 10.5;
-        double resultaat;
-        
+        int percentage = 0;
+        int bedrag = 100;
+        int resultaat;
+
         resultaat = korting.calculateKorting(bedrag, percentage);
-        
-        assertEquals(bedrag, resultaat);  
+
+        assertEquals(bedrag, resultaat);
     }
-    
+
     @Test
-    public void controleBerekening1() {
+    public void controleBerekening() {
         int percentage = 10;
-        double bedrag = 10.50;
-        double resultaat;
-        
+        int bedrag = 100;
+        int resultaat;
+
         resultaat = korting.calculateKorting(bedrag, percentage);
-        
-        assertEquals(resultaat, 9.45);  
-    }
-    
-    @Test
-    public void controleBerekening2() {
-        int percentage = 10;
-        double bedrag = 10.49;
-        double resultaat;
-        
-        resultaat = korting.calculateKorting(bedrag, percentage);
-        
-        assertEquals(resultaat, 9.44);  
+
+        assertEquals(resultaat, 90);
     }
 
     // TODO add test methods here.
