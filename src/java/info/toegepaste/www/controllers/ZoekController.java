@@ -1,7 +1,9 @@
 package info.toegepaste.www.controllers;
 
 import info.toegepaste.www.models.Gemeente;
+import info.toegepaste.www.models.Reis;
 import info.toegepaste.www.services.GemeenteService;
+import info.toegepaste.www.services.ReisService;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -20,8 +22,18 @@ public class ZoekController implements Serializable{
     private ZoekController zoekController;
     @Inject
     private GemeenteService gemeenteService;
+    @Inject
+    private ReisService reisService;
     private Gemeente gemeente;
     private List<Gemeente> bestemmingen;
+
+    public ReisService getReisService() {
+        return reisService;
+    }
+
+    public void setReisService(ReisService reisService) {
+        this.reisService = reisService;
+    }
 
     public Gemeente getGemeente() {
         return gemeente;
@@ -57,5 +69,10 @@ public class ZoekController implements Serializable{
     
     public List<Gemeente> getAlleBestemmingen() {
         return gemeenteService.getAllBestemmingen();
+    }
+    
+    public List<Reis> getReisByBestemming() {
+        Gemeente gemeente;
+        return reisService.getReisByGemeente(gemeente);
     }
 }
