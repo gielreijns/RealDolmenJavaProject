@@ -17,7 +17,7 @@ public class Korting implements Serializable {
     }
 
     /**
-     * kortingsPercentage moet tussen 0 en 100
+     * kortingsPercentage moet altijd tussen 0 en 100
      */
     public int calculateKorting(int bedrag, int kortingsPercentage) {
         int nieuwBedrag;

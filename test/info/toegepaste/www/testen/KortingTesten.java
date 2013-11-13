@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class KortingTesten {
 
-    public Korting korting;
+    public Korting korting = new Korting();
 
     public KortingTesten() {
     }
@@ -32,8 +32,6 @@ public class KortingTesten {
 
         resultaat = korting.calculateKorting(bedrag, percentage);
         
-        System.out.println(bedrag + " " + resultaat + "bruno test");
-
         assertEquals(bedrag, resultaat);
     }
 
@@ -58,10 +56,4 @@ public class KortingTesten {
 
         assertEquals(resultaat, 90);
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
