@@ -21,9 +21,6 @@ public class KortingTesten {
 
     public Korting korting = new Korting();
 
-    public KortingTesten() {
-    }
-
     @Test
     public void testPercentageBoven100() {
         int percentage = 101;
