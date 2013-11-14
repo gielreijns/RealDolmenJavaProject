@@ -28,7 +28,7 @@
                         <h3>Alle bestemmingen</h3>
                         <h:dataTable value="#{zoekController.alleBestemmingen}" var="gemeente">
                             <h:column>
-                                <h:link value="#{gemeente.naam}" outcome="gemeente" >
+                                <h:link value="#{gemeente.naam}" outcome="zoekResultaten" >
                                     <f:param name="gemeenteId" value="#{gemeente.id}"/>
                                 </h:link>
                             </h:column>
