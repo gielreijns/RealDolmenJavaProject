@@ -30,7 +30,13 @@
                             <fieldset>  
                                 <h:panelGrid columns="6">
                                     <h:outputLabel for="bestemming">Bestemming:</h:outputLabel>
-                                    <h:inputText id="bestemming" value="#{zoekController.gemeenteNaam}"/>
+                                    <h:selectOneMenu id="bestemming" value="#{zoekController.vervoerswijzeNaam}">
+                                        <f:selectItem itemLabel="- Selecteer -" />
+                                        <f:selectItems value="#{zoekController.alleBestemmingen}" var="gemeente" itemLabel="#{gemeente.naam}" itemValue="#{gemeente.id}" />
+                                    </h:selectOneMenu>
+
+                                    <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
+                                    <h:inputText id="periodestart" value="#{zoekController.vertrekdatum}" class="datepicker"/>
 
                                     <h:outputLabel for="plaatsen">Beschikbare plaatsen:</h:outputLabel>
                                     <h:inputText id="plaatsen" value="#{zoekController.aantalPlaatsen}"/>
@@ -40,10 +46,7 @@
                                         <f:selectItem itemLabel="- Selecteer -" />
                                         <f:selectItems value="#{zoekController.vervoerswijzen}" var="vervoerswijze" itemLabel="#{vervoerswijze.naam}" itemValue="#{vervoerswijze.id}" />
                                     </h:selectOneMenu>
-
-                                    <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
-                                    <h:inputText id="periodestart" value="#{zoekController.vertrekdatum}" class="datepicker"/>
-
+                                    
                                     <h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
                                     <h:inputText id="periodeeinde" value="#{zoekController.terugkeerdatum}" class="datepicker"/>
 
