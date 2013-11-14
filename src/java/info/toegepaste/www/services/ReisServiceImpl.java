@@ -10,6 +10,7 @@ import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Reis;
 import info.toegepaste.www.models.Vervoerswijze;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -51,21 +52,21 @@ public class ReisServiceImpl implements ReisService {
     }
     
     @Override
-    public List<Reis> getReisByVertrekdatum(Date vertrekdatum) {
+    public List<Reis> getReisByVertrekdatum(GregorianCalendar vertrekdatum) {
         Query query = entityManager.createNamedQuery("Reis.getByVertrekdatum");
         query.setParameter("vertrekdatum", vertrekdatum);
         return query.getResultList();
     }
     
     @Override
-    public List<Reis> getReisByTerugkeerdatum(Date terugkeerdatum) {
+    public List<Reis> getReisByTerugkeerdatum(GregorianCalendar terugkeerdatum) {
         Query query = entityManager.createNamedQuery("Reis.getTerugkeerdatum");
         query.setParameter("terugkeerdatum", terugkeerdatum);
         return query.getResultList();
     }
     
     @Override
-    public List<Reis> getReisByReisPeriode(Date vertrekdatum, Date terugkeerdatum) {
+    public List<Reis> getReisByReisPeriode(GregorianCalendar vertrekdatum, GregorianCalendar terugkeerdatum) {
         Query query = entityManager.createNamedQuery("Reis.getByReisPeriode");
         query.setParameter("vertrekdatum", vertrekdatum);
         query.setParameter("terugkeerdatum", terugkeerdatum);
@@ -73,7 +74,7 @@ public class ReisServiceImpl implements ReisService {
     }
     
     @Override
-    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze, Date vertrekdatum, Date terugkeerdatum) {
+    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze, GregorianCalendar vertrekdatum, GregorianCalendar terugkeerdatum) {
         Query query = entityManager.createNamedQuery("Reis.getByAllZoekParameters");
         query.setParameter("gemeente", gemeente);
         query.setParameter("aantalPlaatsen", aantalPlaatsen);

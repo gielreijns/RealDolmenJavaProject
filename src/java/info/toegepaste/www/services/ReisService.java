@@ -9,6 +9,7 @@ import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Reis;
 import info.toegepaste.www.models.Vervoerswijze;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -25,11 +26,11 @@ public interface ReisService {
 
     public List<Reis> getReisByVervoerswijze(Vervoerswijze vervoerswijze);
 
-    public List<Reis> getReisByVertrekdatum(Date vertrekdatum);
+    public List<Reis> getReisByVertrekdatum(GregorianCalendar vertrekdatum);
 
-    public List<Reis> getReisByTerugkeerdatum(Date terugkeerdatum);
+    public List<Reis> getReisByTerugkeerdatum(GregorianCalendar terugkeerdatum);
 
-    public List<Reis> getReisByReisPeriode(Date vertrekdatum, Date terugkeerdatum);
+    public List<Reis> getReisByReisPeriode(GregorianCalendar vertrekdatum, GregorianCalendar terugkeerdatum);
     
-    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze, Date vertrekdatum, Date terugkeerdatum);
+    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze, GregorianCalendar vertrekdatum, GregorianCalendar terugkeerdatum);
 }

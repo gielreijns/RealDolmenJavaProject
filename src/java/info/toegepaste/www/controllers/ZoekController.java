@@ -170,4 +170,12 @@ public class ZoekController implements Serializable{
     public List<Reis> getReisByBestemming() {
         return reisService.getReisByGemeente(gemeente);
     }
+    public String zoeken() {
+        gemeente = new Gemeente();
+        gemeente.setNaam(gemeenteNaam);
+        
+
+        reisService.getReisByAllZoekParameters(gemeente, aantalPlaatsen, vervoerswijze, vertrekdatum, terugkeerdatum);
+        return "zoekResultaten.xhtml";
+    }
 }
