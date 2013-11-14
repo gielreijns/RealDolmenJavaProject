@@ -2,8 +2,10 @@ package info.toegepaste.www.controllers;
 
 import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Reis;
+import info.toegepaste.www.models.Vervoerswijze;
 import info.toegepaste.www.services.GemeenteService;
 import info.toegepaste.www.services.ReisService;
+import info.toegepaste.www.services.VervoerswijzeService;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
@@ -24,8 +26,51 @@ public class ZoekController implements Serializable{
     private GemeenteService gemeenteService;
     @Inject
     private ReisService reisService;
+    
+    @Inject
+    private VervoerswijzeService vervoerswijzeService;
+    private Integer selectedVervoerswijzeId;
+    private Vervoerswijze vervoerswijze;
     private Gemeente gemeente;
+    private Reis reis;
     private List<Gemeente> bestemmingen;
+
+    public VervoerswijzeService getVervoerswijzeService() {
+        return vervoerswijzeService;
+    }
+
+    public void setVervoerswijzeService(VervoerswijzeService vervoerswijzeService) {
+        this.vervoerswijzeService = vervoerswijzeService;
+    }
+
+    public Integer getSelectedVervoerswijzeId() {
+        return selectedVervoerswijzeId;
+    }
+
+    public void setSelectedVervoerswijzeId(Integer selectedVervoerswijzeId) {
+        this.selectedVervoerswijzeId = selectedVervoerswijzeId;
+    }
+
+    public Vervoerswijze getVervoerswijze() {
+        return vervoerswijze;
+    }
+
+    public void setVervoerswijze(Vervoerswijze vervoerswijze) {
+        this.vervoerswijze = vervoerswijze;
+    }
+    
+    
+    
+    public List<Vervoerswijze> getVervoerswijzen() {
+        return vervoerswijzeService.getAllVervoerswijzen();
+    }
+    public Reis getReis() {
+        return reis;
+    }
+
+    public void setReis(Reis reis) {
+        this.reis = reis;
+    }
 
     public ReisService getReisService() {
         return reisService;
