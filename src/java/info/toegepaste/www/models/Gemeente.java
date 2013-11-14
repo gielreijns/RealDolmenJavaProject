@@ -67,7 +67,7 @@ public class Gemeente implements Serializable {
     @OneToMany(mappedBy = "gemeente")
     private List<Reis> reizen;
     @OneToMany(mappedBy = "gemeente")
-    private List<Vertrekplaats> vertrekplaatsen;
+    private List<Reis> vertrekplaatsenReizen;
     
    
     
@@ -92,12 +92,12 @@ public class Gemeente implements Serializable {
         this.reizen = reizen;
     }
 
-    public List<Vertrekplaats> getVertrekplaatsen() {
-        return vertrekplaatsen;
+    public List<Reis> getVertrekplaatsenReizen() {
+        return vertrekplaatsenReizen;
     }
 
-    public void setVertrekplaatsen(List<Vertrekplaats> vertrekplaatsen) {
-        this.vertrekplaatsen = vertrekplaatsen;
+    public void setVertrekplaatsenReizen(List<Reis> vertrekplaatsenReizen) {
+        this.vertrekplaatsenReizen = vertrekplaatsenReizen;
     }
 
     public Integer getId() {

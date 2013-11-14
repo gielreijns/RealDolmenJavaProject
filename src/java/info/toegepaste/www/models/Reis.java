@@ -87,7 +87,7 @@ public class Reis implements Serializable {
     private Vervoerswijze vervoerswijze;
     
     @ManyToOne
-    private Vertrekplaats vertrekplaats;
+    private Gemeente vertrekplaats;
     
     
 
@@ -168,11 +168,11 @@ public class Reis implements Serializable {
         this.vervoerswijze = vervoerswijze;
     }
 
-    public Vertrekplaats getVertrekplaats() {
+    public Gemeente getVertrekplaats() {
         return vertrekplaats;
     }
 
-    public void setVertrekplaats(Vertrekplaats vertrekplaats) {
+    public void setVertrekplaats(Gemeente vertrekplaats) {
         this.vertrekplaats = vertrekplaats;
     }
 
