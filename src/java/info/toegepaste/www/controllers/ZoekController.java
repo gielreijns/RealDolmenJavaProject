@@ -8,6 +8,7 @@ import info.toegepaste.www.services.ReisService;
 import info.toegepaste.www.services.VervoerswijzeService;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -35,10 +36,19 @@ public class ZoekController implements Serializable{
     private Gemeente gemeente;
     private String gemeenteNaam;
     private Integer aantalPlaatsen;
-    private Date startDatum;
-    private Date eindDatum;
+    private String vervoerswijzeNaam;
+    private GregorianCalendar vertrekdatum;
+    private GregorianCalendar terugkeerdatum;
     private Reis reis;
     private List<Gemeente> bestemmingen;
+
+    public String getVervoerswijzeNaam() {
+        return vervoerswijzeNaam;
+    }
+
+    public void setVervoerswijzeNaam(String vervoerswijzeNaam) {
+        this.vervoerswijzeNaam = vervoerswijzeNaam;
+    }
 
     public String getGemeenteNaam() {
         return gemeenteNaam;
@@ -56,21 +66,25 @@ public class ZoekController implements Serializable{
         this.aantalPlaatsen = aantalPlaatsen;
     }
 
-    public Date getStartDatum() {
-        return startDatum;
+    public GregorianCalendar getVertrekdatum() {
+        return vertrekdatum;
     }
 
-    public void setStartDatum(Date startDatum) {
-        this.startDatum = startDatum;
+    public void setVertrekdatum(GregorianCalendar vertrekdatum) {
+        this.vertrekdatum = vertrekdatum;
     }
 
-    public Date getEindDatum() {
-        return eindDatum;
+    public GregorianCalendar getTerugkeerdatum() {
+        return terugkeerdatum;
     }
 
-    public void setEindDatum(Date eindDatum) {
-        this.eindDatum = eindDatum;
+    public void setTerugkeerdatum(GregorianCalendar terugkeerdatum) {
+        this.terugkeerdatum = terugkeerdatum;
     }
+
+   
+
+    
 
     public VervoerswijzeService getVervoerswijzeService() {
         return vervoerswijzeService;

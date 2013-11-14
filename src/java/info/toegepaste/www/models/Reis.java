@@ -6,6 +6,7 @@ package info.toegepaste.www.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -63,13 +64,13 @@ public class Reis implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "vertrekdatum")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date vertrekdatum;
+    @Temporal(TemporalType.DATE)
+    private GregorianCalendar vertrekdatum;
     @Basic(optional = false)
     @NotNull
     @Column(name = "terugkeerdatum")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date terugkeerdatum;
+    @Temporal(TemporalType.DATE)
+    private GregorianCalendar terugkeerdatum;
     @Basic(optional = false)
     @NotNull
     @Column(name = "aantalPlaatsen")
@@ -117,21 +118,23 @@ public class Reis implements Serializable {
         this.beschrijving = beschrijving;
     }
 
-    public Date getVertrekdatum() {
+    public GregorianCalendar getVertrekdatum() {
         return vertrekdatum;
     }
 
-    public void setVertrekdatum(Date vertrekdatum) {
+    public void setVertrekdatum(GregorianCalendar vertrekdatum) {
         this.vertrekdatum = vertrekdatum;
     }
 
-    public Date getTerugkeerdatum() {
+    public GregorianCalendar getTerugkeerdatum() {
         return terugkeerdatum;
     }
 
-    public void setTerugkeerdatum(Date terugkeerdatum) {
+    public void setTerugkeerdatum(GregorianCalendar terugkeerdatum) {
         this.terugkeerdatum = terugkeerdatum;
     }
+
+    
 
     public int getAantalPlaatsen() {
         return aantalPlaatsen;

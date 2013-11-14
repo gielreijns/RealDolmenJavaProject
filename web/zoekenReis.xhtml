@@ -30,26 +30,26 @@
                             <fieldset>  
                                 <h:panelGrid columns="6">
                                     <h:outputLabel for="bestemming">Bestemming:</h:outputLabel>
-                                    <h:inputText id="bestemming" value="#{zoekController.gemeente}"/>
+                                    <h:inputText id="bestemming" value="#{zoekController.gemeenteNaam}"/>
 
                                     <h:outputLabel for="plaatsen">Beschikbare plaatsen:</h:outputLabel>
-                                    <h:inputText id="plaatsen" value="#{zoekController.gemeenteNaam}"/>
+                                    <h:inputText id="plaatsen" value="#{zoekController.aantalPlaatsen}"/>
 
                                     <h:outputLabel for="vervoerswijze">Vervoerswijze:</h:outputLabel>
-                                    <h:selectOneMenu id="vervoerswijze" value="Hier nog">
+                                    <h:selectOneMenu id="vervoerswijze" value="#{zoekController.vervoerswijzeNaam}">
                                         <f:selectItem itemLabel="- Selecteer -" />
                                         <f:selectItems value="#{zoekController.vervoerswijzen}" var="vervoerswijze" itemLabel="#{vervoerswijze.naam}" itemValue="#{vervoerswijze.id}" />
                                     </h:selectOneMenu>
 
                                     <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
-                                    <h:inputText id="periodestart" value="#{zoekController.startDatum}" class="datepicker"/>
+                                    <h:inputText id="periodestart" value="#{zoekController.vertrekdatum}" class="datepicker"/>
 
                                     <h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
-                                    <h:inputText id="periodeeinde" value="#{zoekController.eindDatum}" class="datepicker"/>
+                                    <h:inputText id="periodeeinde" value="#{zoekController.terugkeerdatum}" class="datepicker"/>
 
                                     <h:outputLabel></h:outputLabel>
 
-                                    <h:commandButton value="Zoeken" action="#{zoekController.zoeken}" class="button"/>
+                                    <h:commandButton value="Zoeken" immediate="true" action="#{zoekController.zoeken}" class="button"/>
                                 </h:panelGrid>
                             </fieldset>
                         </h:form>
