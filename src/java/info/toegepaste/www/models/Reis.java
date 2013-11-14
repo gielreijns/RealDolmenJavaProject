@@ -34,16 +34,15 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "reis")
 @NamedQueries({
-    @NamedQuery(name = "Reis.getAll", query = "SELECT r from Reis r"),
+    @NamedQuery(name = "Reis.getAll", query = "SELECT r from Reis r order by r.naam"),
 @NamedQuery(name = "Reis.getByNaam", query = "SELECT r from Reis r WHERE r.naam = :naam"),
-@NamedQuery(name = "Reis.getByGemeente", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente"),
+@NamedQuery(name = "Reis.getByGemeente", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente order by r.naam"),
 @NamedQuery(name = "Reis.getByAantalPlaatsen", query = "SELECT r from Reis r WHERE r.aantalPlaatsen >= :aantalPlaatsen"),
 @NamedQuery(name = "Reis.getByVervoerswijze", query = "SELECT r from Reis r WHERE r.vervoerswijze = :vervoerswijze"),
 @NamedQuery(name = "Reis.getByVertrekdatum", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum"),
 @NamedQuery(name = "Reis.getTerugkeerdatum", query = "SELECT r from Reis r WHERE r.terugkeerdatum = :terugkeerdatum"),
 @NamedQuery(name = "Reis.getByReisPeriode", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum AND r.terugkeerdatum = :terugkeerdatum"),
-@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente OR r.aantalPlaatsen >= :aantalPlaatsen OR "
-        + "r.vervoerswijze = :vervoerswijze OR r.vertrekdatum = :vertrekdatum OR r.terugkeerdatum = :terugkeerdatum")
+@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente OR r.aantalPlaatsen >= :aantalPlaatsen OR r.vervoerswijze = :vervoerswijze OR r.vertrekdatum = :vertrekdatum OR r.terugkeerdatum = :terugkeerdatum ORDER BY r.naam")
 })
 public class Reis implements Serializable {
 
