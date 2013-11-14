@@ -30,10 +30,10 @@
                             <fieldset>  
                                 <h:panelGrid columns="6">
                                     <h:outputLabel for="bestemming">Bestemming:</h:outputLabel>
-                                    <h:inputText id="bestemming" value="#{zoekController.gemeente.naam}"/>
+                                    <h:inputText id="bestemming" value="#{zoekController.gemeente}"/>
 
                                     <h:outputLabel for="plaatsen">Beschikbare plaatsen:</h:outputLabel>
-                                    <h:inputText id="plaatsen" value="#{zoekController.reis.aantalPlaatsen}"/>
+                                    <h:inputText id="plaatsen" value="#{zoekController.gemeenteNaam}"/>
 
                                     <h:outputLabel for="vervoerswijze">Vervoerswijze:</h:outputLabel>
                                     <h:selectOneMenu id="vervoerswijze" value="Hier nog">
@@ -42,10 +42,10 @@
                                     </h:selectOneMenu>
 
                                     <h:outputLabel for="periodestart">Periode start:</h:outputLabel>
-                                    <h:inputText id="periodestart" value="#{zoekController.reis.vertrekdatum}" class="datepicker"/>
+                                    <h:inputText id="periodestart" value="#{zoekController.startDatum}" class="datepicker"/>
 
                                     <h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
-                                    <h:inputText id="periodeeinde" value="#{zoekController.reis.terugkeerdatum}" class="datepicker"/>
+                                    <h:inputText id="periodeeinde" value="#{zoekController.eindDatum}" class="datepicker"/>
 
                                     <h:outputLabel></h:outputLabel>
 

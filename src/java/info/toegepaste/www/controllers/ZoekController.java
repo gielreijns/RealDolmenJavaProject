@@ -7,6 +7,7 @@ import info.toegepaste.www.services.GemeenteService;
 import info.toegepaste.www.services.ReisService;
 import info.toegepaste.www.services.VervoerswijzeService;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -32,8 +33,44 @@ public class ZoekController implements Serializable{
     private Integer selectedVervoerswijzeId;
     private Vervoerswijze vervoerswijze;
     private Gemeente gemeente;
+    private String gemeenteNaam;
+    private Integer aantalPlaatsen;
+    private Date startDatum;
+    private Date eindDatum;
     private Reis reis;
     private List<Gemeente> bestemmingen;
+
+    public String getGemeenteNaam() {
+        return gemeenteNaam;
+    }
+
+    public void setGemeenteNaam(String gemeenteNaam) {
+        this.gemeenteNaam = gemeenteNaam;
+    }
+
+    public Integer getAantalPlaatsen() {
+        return aantalPlaatsen;
+    }
+
+    public void setAantalPlaatsen(Integer aantalPlaatsen) {
+        this.aantalPlaatsen = aantalPlaatsen;
+    }
+
+    public Date getStartDatum() {
+        return startDatum;
+    }
+
+    public void setStartDatum(Date startDatum) {
+        this.startDatum = startDatum;
+    }
+
+    public Date getEindDatum() {
+        return eindDatum;
+    }
+
+    public void setEindDatum(Date eindDatum) {
+        this.eindDatum = eindDatum;
+    }
 
     public VervoerswijzeService getVervoerswijzeService() {
         return vervoerswijzeService;
