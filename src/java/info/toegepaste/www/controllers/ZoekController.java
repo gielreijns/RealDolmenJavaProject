@@ -72,7 +72,6 @@ public class ZoekController implements Serializable{
     }
     
     public List<Reis> getReisByBestemming() {
-        Gemeente gemeente;
         return reisService.getReisByGemeente(gemeente);
     }
 }
