@@ -42,8 +42,8 @@ import javax.validation.constraints.NotNull;
 @NamedQuery(name = "Reis.getByVertrekdatum", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum"),
 @NamedQuery(name = "Reis.getTerugkeerdatum", query = "SELECT r from Reis r WHERE r.terugkeerdatum = :terugkeerdatum"),
 @NamedQuery(name = "Reis.getByReisPeriode", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum AND r.terugkeerdatum = :terugkeerdatum"),
-@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente AND r.aantalPlaatsen >= :aantalPlaatsen AND "
-        + "r.vervoerswijze = :vervoerswijze AND r.vertrekdatum = :vertrekdatum AND r.terugkeerdatum = :terugkeerdatum")
+@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente OR r.aantalPlaatsen >= :aantalPlaatsen OR "
+        + "r.vervoerswijze = :vervoerswijze OR r.vertrekdatum = :vertrekdatum OR r.terugkeerdatum = :terugkeerdatum")
 })
 public class Reis implements Serializable {
 
@@ -78,7 +78,7 @@ public class Reis implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "prijsPerPersoon")
-    private Double prijsPerPersoon;
+    private int prijsPerPersoon;
 
     @ManyToOne
     private Gemeente gemeente;
@@ -144,11 +144,11 @@ public class Reis implements Serializable {
         this.aantalPlaatsen = aantalPlaatsen;
     }
 
-    public Double getPrijsPerPersoon() {
+    public int getPrijsPerPersoon() {
         return prijsPerPersoon;
     }
 
-    public void setPrijsPerPersoon(Double prijsPerPersoon) {
+    public void setPrijsPerPersoon(int prijsPerPersoon) {
         this.prijsPerPersoon = prijsPerPersoon;
     }
 
