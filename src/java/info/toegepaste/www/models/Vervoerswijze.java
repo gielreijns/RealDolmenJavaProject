@@ -27,7 +27,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "vervoerswijze")
 @NamedQueries({
-    @NamedQuery(name = "Vervoerswijze.getAll", query = "SELECT v FROM Vervoerswijze v")
+    @NamedQuery(name = "Vervoerswijze.getAll", query = "SELECT v FROM Vervoerswijze v order by v.naam")
 })
 public class Vervoerswijze implements Serializable {
     private static final long serialVersionUID = 1L;
