@@ -30,7 +30,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "land")
 @NamedQueries({
-    @NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l")
+    @NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l order by l.naam")
     
 })
 public class Land implements Serializable {
