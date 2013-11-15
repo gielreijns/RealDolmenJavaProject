@@ -28,6 +28,13 @@
                         <h3>Gevonden zoekresultaten</h3>
                         <div >#{zoekController.reis.naam} </div>
                     
+                        <h:dataTable value="#{zoekController.gevondenReizen}" var="reis">
+                            <h:column>
+                                <h:link value="#{reis.naam}" outcome="reisDetails" >
+                                    <f:param name="reisId" value="#{reis.id}"/>
+                                </h:link>
+                            </h:column>
+                        </h:dataTable>
                         
                     </div>
                 </div>
