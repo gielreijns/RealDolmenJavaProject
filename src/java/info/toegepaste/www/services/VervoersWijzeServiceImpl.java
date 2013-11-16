@@ -6,6 +6,7 @@
 package info.toegepaste.www.services;
 
 import info.toegepaste.www.models.Vervoerswijze;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +16,7 @@ import javax.persistence.Query;
  *
  * @author Bruno
  */
-public class VervoersWijzeServiceImpl implements VervoerswijzeService {
+public class VervoersWijzeServiceImpl implements VervoerswijzeService, Serializable {
 
     @PersistenceContext
     private EntityManager entityManager;

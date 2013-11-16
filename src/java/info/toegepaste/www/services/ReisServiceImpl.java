@@ -9,9 +9,11 @@ package info.toegepaste.www.services;
 import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Reis;
 import info.toegepaste.www.models.Vervoerswijze;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -20,7 +22,9 @@ import javax.persistence.Query;
  *
  * @author Bruno
  */
-public class ReisServiceImpl implements ReisService {
+
+
+public class ReisServiceImpl implements ReisService, Serializable {
     @PersistenceContext
     private EntityManager entityManager;
     

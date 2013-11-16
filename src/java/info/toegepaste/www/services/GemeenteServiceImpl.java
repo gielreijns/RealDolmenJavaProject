@@ -8,6 +8,7 @@ package info.toegepaste.www.services;
 
 import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Land;
+import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -17,7 +18,7 @@ import javax.persistence.Query;
  *
  * @author Bruno
  */
-public class GemeenteServiceImpl implements GemeenteService {
+public class GemeenteServiceImpl implements GemeenteService, Serializable {
     @PersistenceContext
     private EntityManager entityManager;
     

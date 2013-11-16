@@ -8,6 +8,7 @@ package info.toegepaste.www.services;
 import info.toegepaste.www.models.Continent;
 import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Land;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -17,7 +18,7 @@ import javax.persistence.Query;
  *
  * @author Bruno
  */
-public class LandServiceImpl implements LandService {
+public class LandServiceImpl implements LandService, Serializable {
 
     @PersistenceContext
     private EntityManager entityManager;

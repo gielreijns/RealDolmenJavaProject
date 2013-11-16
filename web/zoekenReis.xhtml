@@ -29,8 +29,8 @@
                         <h:form>
                             <fieldset>  
                                 <h:panelGrid columns="6">
-                                    <h:outputLabel for="bestemming">Bestemming:</h:outputLabel>
-                                    <h:selectOneMenu id="bestemming" value="#{zoekController.vervoerswijzeNaam}">
+                                    <h:outputLabel for="gemeente">Bestemming:</h:outputLabel>
+                                    <h:selectOneMenu id="gemeent" value="#{zoekController.gemeenteId}">
                                         <f:selectItem itemLabel="- Selecteer -" />
                                         <f:selectItems value="#{zoekController.alleBestemmingen}" var="gemeente" itemLabel="#{gemeente.naam}" itemValue="#{gemeente.id}" />
                                     </h:selectOneMenu>

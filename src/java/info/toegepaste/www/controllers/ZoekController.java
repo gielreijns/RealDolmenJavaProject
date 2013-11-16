@@ -20,7 +20,7 @@ import javax.inject.Named;
  * @author Bruno
  */
 @Named
-@RequestScoped
+@SessionScoped
 public class ZoekController implements Serializable{
     @Inject
     private ZoekController zoekController;
@@ -35,6 +35,7 @@ public class ZoekController implements Serializable{
     private Vervoerswijze vervoerswijze;
     private Gemeente gemeente;
     private String gemeenteNaam;
+    private Integer gemeenteId;
     private Integer aantalPlaatsen;
     private String vervoerswijzeNaam;
     private GregorianCalendar vertrekdatum;
@@ -42,6 +43,14 @@ public class ZoekController implements Serializable{
     private Reis reis;
     private List<Reis> gevondenReizen;
     private List<Gemeente> bestemmingen;
+
+    public Integer getGemeenteId() {
+        return gemeenteId;
+    }
+
+    public void setGemeenteId(Integer gemeenteId) {
+        this.gemeenteId = gemeenteId;
+    }
 
     
     public List<Reis> getGevondenReizen() {
@@ -182,7 +191,7 @@ public class ZoekController implements Serializable{
     }
     public String zoeken() {
         gemeente = new Gemeente();
-        gemeente.setNaam(gemeenteNaam);
+        gemeente.setId(gemeenteId);
         
         //eerst enkel zoeken op gemeente om te testen
         gevondenReizen = reisService.getReisByGemeente(gemeente);

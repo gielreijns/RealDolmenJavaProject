@@ -8,6 +8,7 @@ package info.toegepaste.www.services;
 import info.toegepaste.www.models.Gemeente;
 import info.toegepaste.www.models.Reis;
 import info.toegepaste.www.models.Vervoerswijze;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
