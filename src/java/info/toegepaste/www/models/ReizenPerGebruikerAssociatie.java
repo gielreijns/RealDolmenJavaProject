@@ -26,9 +26,9 @@ import javax.persistence.Table;
 public class ReizenPerGebruikerAssociatie {
    
     @Id
-    private Long reisId;
+    private int reisId;
     @Id
-    private Long gebruikerId;
+    private int gebruikerId;
     
     @Column(name="aantalPersonen")
   private int aantalPersonen;

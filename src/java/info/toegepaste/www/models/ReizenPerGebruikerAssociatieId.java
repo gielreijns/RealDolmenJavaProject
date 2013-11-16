@@ -19,8 +19,8 @@ import javax.persistence.Id;
 public class ReizenPerGebruikerAssociatieId implements Serializable{
     
     
-    private Long reisId;
-    private Long gebruikerId;
+    private int reisId;
+    private int gebruikerId;
 
    
     
