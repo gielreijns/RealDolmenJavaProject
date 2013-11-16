@@ -197,5 +197,6 @@ public class ZoekController implements Serializable{
         gevondenReizen = reisService.getReisByGemeente(gemeente);
         //gevondenReizen = reisService.getReisByAllZoekParameters(gemeente, aantalPlaatsen, vervoerswijze, vertrekdatum, terugkeerdatum);
         return "zoekResultaten.xhtml";
+       
     }
 }
