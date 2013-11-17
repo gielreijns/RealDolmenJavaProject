@@ -12,12 +12,16 @@ import info.toegepaste.www.models.Vervoerswijze;
 import info.toegepaste.www.services.GemeenteService;
 import info.toegepaste.www.services.ReisService;
 import java.io.Serializable;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
  * @author Bruno
  */
+@Named
+@SessionScoped
 public class DetailController implements Serializable{
     @Inject
     private DetailController detailController;
