@@ -31,7 +31,7 @@
                         <h:dataTable value="#{zoekController.gevondenReizen}" var="reis">
                             <h:column>
                                 <h:form>
-                                    <h:commandLink action="#{zoekController.reisDetailsZoeken(reis)}" value='#{reis.naam}' />
+                                    <h:commandLink action="#{detailController.reisDetailsZoeken(reis)}" value='#{reis.naam}' />
                                 </h:form>
                             </h:column>
                         </h:dataTable>
