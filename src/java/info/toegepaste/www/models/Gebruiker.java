@@ -33,7 +33,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "gebruiker")
 @NamedQueries({
-    @NamedQuery(name = "Gebruiker.checkLogin", query = "SELECT g FROM Gebruiker g WHERE g.email = :email AND g.wachtwoord = :wachtwoord")
+    @NamedQuery(name = "Gebruiker.checkLogin", query = "SELECT g FROM Gebruiker g WHERE g.email = :email AND g.wachtwoord = :wachtwoord"),
+    @NamedQuery(name = "Gebruiker.checkLoginCount", query = "SELECT COUNT(g) FROM Gebruiker g WHERE g.email = :email AND g.wachtwoord = :wachtwoord")
 })
 public class Gebruiker implements Serializable {
     private static final long serialVersionUID = 1L;

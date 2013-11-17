@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>RD Travelshop | Aanmelden</title>
@@ -22,18 +23,20 @@
     </h:head>
     <h:body>
         <ui:include src="include/header.xhtml"/>
-
+        
+        
+        
         <div class="wrapper">
             <div class="container">
                 <div class="whitebox" id="hpage_services">
-
+                    <h3>Aanmelden</h3>
                     <h:form>
                         <h:panelGrid id="grid" columns="3">
                             <h:outputLabel>Email: </h:outputLabel>
-                            <h:inputText id="email"/>
-                            <h:commandButton value="Aanmelden" class="button" action="aanmelden"/>
+                            <h:inputText id="email" tabindex="1" value="#{loginController.email}"/>
+                            <h:commandButton value="Aanmelden" class="button" action="#{loginController.login()}" tabindex="3"/>
                             <h:outputLabel>Wachtwoord: </h:outputLabel>
-                            <h:inputSecret id="wachtwoord"/>
+                            <h:inputSecret id="wachtwoord" tabindex="2" value="#{loginController.wachtwoord}"/>
                         </h:panelGrid>  
                     </h:form>
                     <p>Heeft u nog geen account, klik dan <a href="registreren.xhtml">hier</a> om te registreren.</p>

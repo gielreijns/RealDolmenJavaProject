@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package info.toegepaste.www.controllers;
 
-import info.toegepaste.www.models.Gemeente;
-import info.toegepaste.www.models.Land;
-import info.toegepaste.www.services.GemeenteService;
-import info.toegepaste.www.services.LandService;
+import info.toegepaste.www.models.*;
+import info.toegepaste.www.services.*;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -22,12 +22,14 @@ import javax.inject.Named;
  */
 @Named
 @RequestScoped
-public class RegistratieController implements Serializable{
+public class RegistratieController implements Serializable {
 
     @Inject
     private GemeenteService gemeenteService;
-    @Inject 
+    @Inject
     private LandService landService;
+    @Inject
+    private GebruikerService gebruikerService;
     @Inject
     private RegistratieController registratieController;
     private Integer selectedGemeenteId;
@@ -35,7 +37,7 @@ public class RegistratieController implements Serializable{
     private Integer selectedLandId;
     private String voornaam;
     private String naam;
-    private Integer telefoon;
+    private String telefoon;
     private String straat;
     private String straatnummer;
     private String email;
@@ -89,11 +91,11 @@ public class RegistratieController implements Serializable{
         this.naam = naam;
     }
 
-    public Integer getTelefoon() {
+    public String getTelefoon() {
         return telefoon;
     }
 
-    public void setTelefoon(Integer telefoon) {
+    public void setTelefoon(String telefoon) {
         this.telefoon = telefoon;
     }
 
@@ -128,7 +130,6 @@ public class RegistratieController implements Serializable{
     public void setWachtwoord(String wachtwoord) {
         this.wachtwoord = wachtwoord;
     }
-    
 
     public Integer getSelectedGemeenteId() {
         return selectedGemeenteId;
@@ -136,12 +137,13 @@ public class RegistratieController implements Serializable{
 
     public void setSelectedGemeenteId(Integer selectedGemeenteId) {
         this.selectedGemeenteId = selectedGemeenteId;
-        
+
     }
-        
-    public List<Gemeente> getGemeentes(){
+
+    public List<Gemeente> getGemeentes() {
         return gemeenteService.getAllGemeentes();
     }
+
     public List<Gemeente> getGemeentesFromLand() {
         if (selectedLandId == null) {
             return null;
@@ -151,11 +153,35 @@ public class RegistratieController implements Serializable{
             return gemeenteService.getAllGemeentesVanLand(land);
         }
     }
-    public List<Land> getLanden(){
+
+    public List<Land> getLanden() {
         return landService.getAllLanden();
     }
-    
-    
-    
-    
+
+    public String registreer() {
+        Gebruiker gebruiker = new Gebruiker();
+        Gemeente gemeente = new Gemeente();
+        /*gemeente.setId(selectedGemeenteId);
+        gebruiker.setVoornaam(voornaam);
+        gebruiker.setNaam(naam);
+        gebruiker.setTelefoon(telefoon);
+        gebruiker.setStraat(straat);
+        gebruiker.setNummer(straatnummer);
+        gebruiker.setGemeente(gemeente);
+        gebruiker.setEmail(email);
+        gebruiker.setWachtwoord(wachtwoord);*/
+
+        gemeente.setId(1);
+        gebruiker.setVoornaam("test");
+        gebruiker.setNaam("test");
+        gebruiker.setTelefoon("test");
+        gebruiker.setStraat("test");
+        gebruiker.setNummer("test");
+        gebruiker.setGemeente(gemeente);
+        gebruiker.setEmail("test");
+        gebruiker.setWachtwoord("test");
+        
+        gebruikerService.registreer(gebruiker);
+        return "index.xhtml";
+    }
 }

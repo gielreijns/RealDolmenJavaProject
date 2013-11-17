@@ -13,5 +13,6 @@ import info.toegepaste.www.models.Gebruiker;
  */
 public interface GebruikerService {
 
-    Gebruiker checkLogin(Gebruiker gebruiker);
+    public Gebruiker checkLogin(Gebruiker gebruiker);
+    public Gebruiker registreer(Gebruiker gebruiker);
 }

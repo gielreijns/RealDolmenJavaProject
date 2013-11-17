@@ -1,5 +1,6 @@
 
-<div class="wrapper">
+<div class="wrapper"
+     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <div id="header">
         <h1><a href="index.xhtml">RD Travelshop</a></h1>
     </div>
@@ -9,12 +10,13 @@
             <li><a href="bestemmingen.xhtml">Bestemmingen</a></li>
             <li><a href="zoekenReis.xhtml">Zoeken</a></li>
             <li><a href="#">Boeken</a></li>
-            <li><a href="aanmelden.xhtml">Aanmelden</a></li>
-            <li><a href="registreren.xhtml">Registreren</a></li>
+            <c:if test="#{loginController.loggedIn eq true}">
+                <li><a href="#{loginController.logout()}">Afmelden #{loginController.naam}</a></li>
+            </c:if>
+            <c:if test="#{loginController.loggedIn eq not true}">
+                <li><a href="aanmelden.xhtml">Aanmelden</a></li>
+            </c:if>
         </ul>
-
-       
-        
         <div class="clear"></div>
     </div>
 </div>
