@@ -27,7 +27,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "continent")
 @NamedQueries({
-    @NamedQuery(name = "Continent.getAll", query = "SELECT c FROM Continent c")
+    @NamedQuery(name = "Continent.getAll", query = "SELECT c FROM Continent c"),
+    //@NamedQuery(name = "Continent.getAllWithBestemming", query = "SELECT c FROM Continent c WHERE c.landen.gemeentes.isBestemming = 1")
 })
 public class Continent implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -40,7 +41,7 @@ public class Continent implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    @ManyToMany(mappedBy = "continent")
+    @ManyToMany
     private List<Land> landen;
 
     public List<Land> getLanden() {
