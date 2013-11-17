@@ -30,6 +30,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "gemeente")
 @NamedQueries({
+    @NamedQuery(name = "Gemeente.getGemeente", query = "SELECT g FROM Gemeente g WHERE g.id = :gemeente"),
     @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g order by g.naam"),
     @NamedQuery(name = "Gemeente.getAllFromLand", query = "SELECT g FROM Gemeente g WHERE g.land = :land order by g.naam"),
     @NamedQuery(name = "Gemeente.getAllBestemmingen", query = "SELECT g FROM Gemeente g WHERE g.isBestemming = true order by g.land, g.naam"),

@@ -22,4 +22,6 @@ public interface GemeenteService {
     public List<Gemeente> getAllBestemmingen();
 
     public List<Gemeente> getAllNietBestemmingen();
+    
+    public Gemeente getGemeente(Gemeente gemeente);
 }
