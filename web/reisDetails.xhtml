@@ -15,12 +15,12 @@
             <div class="wrapper">
                 <div class="container">
                     <div class="whitebox" id="hpage_services">
-                        <h:dataTable value="#{zoekController.gevondenReizen}" var="r"
+                        <h:dataTable value="#{zoekController.reis}" var="r"
                                      styleClass="order-table"
                                      headerClass="order-table-header"
                                      rowClasses="order-table-odd-row,order-table-even-row">
                             <h3>#{r.naam}</h3>
-                            <p>#{R.beschrijving}</p>
+                            <p>#{r.beschrijving}</p>
 
                             <h:column>
                                 <f:facet name="header">Vertrekdatum</f:facet>

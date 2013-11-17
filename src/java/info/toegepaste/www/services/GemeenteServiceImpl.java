@@ -40,7 +40,7 @@ public class GemeenteServiceImpl implements GemeenteService, Serializable {
 
     public Gemeente getGemeente(Gemeente gemeente) {
         Query query = entityManager.createNamedQuery("Gemeente.getGemeente");
-        query.setParameter("gemeente", gemeente);
+        query.setParameter("gemeenteId", gemeente.getId());
         return (Gemeente) query.getSingleResult();
     }
 

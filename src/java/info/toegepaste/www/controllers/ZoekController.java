@@ -225,6 +225,8 @@ public class ZoekController implements Serializable{
     
     public String reisDetailsZoeken(Reis reis) {
         Gemeente gemeente = new Gemeente();
+        
+        this.reis = reis;
         gemeente = reis.getGemeente();
         vertrekplaats = gemeenteService.getGemeente(gemeente);
         
