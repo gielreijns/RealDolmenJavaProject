@@ -33,6 +33,7 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Gemeente.getGemeente", query = "SELECT g FROM Gemeente g WHERE g.id = :gemeenteId"),
     @NamedQuery(name = "Gemeente.getAll", query = "SELECT g FROM Gemeente g order by g.naam"),
     @NamedQuery(name = "Gemeente.getAllFromLand", query = "SELECT g FROM Gemeente g WHERE g.land = :land order by g.naam"),
+    @NamedQuery(name = "Gemeente.getAllBestemmingenFromContinent", query = "SELECT g FROM Gemeente g WHERE g.land.continent = :continent and g.isBestemming = 1 ORDER BY g.naam"),
     @NamedQuery(name = "Gemeente.getAllBestemmingen", query = "SELECT g FROM Gemeente g WHERE g.isBestemming = true order by g.land, g.naam"),
     @NamedQuery(name = "Gemeente.getAllNietBestemmingen", query = "SELECT g FROM Gemeente g WHERE g.isBestemming = false order by g.naam")
 })

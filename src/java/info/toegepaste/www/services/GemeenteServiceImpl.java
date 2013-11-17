@@ -5,8 +5,7 @@
  */
 package info.toegepaste.www.services;
 
-import info.toegepaste.www.models.Gemeente;
-import info.toegepaste.www.models.Land;
+import info.toegepaste.www.models.*;
 import java.io.Serializable;
 import java.util.List;
 import javax.inject.Inject;
@@ -38,6 +37,13 @@ public class GemeenteServiceImpl implements GemeenteService, Serializable {
         return query.getResultList();
     }
 
+    @Override
+    public List<Gemeente> getAllBestemmingenFromContinent(Continent continent) {
+        Query query = entityManager.createNamedQuery("Gemeente.getAllBestemmingenFromContinent");
+        query.setParameter("continent", continent);
+        return query.getResultList();
+    }
+    
     public Gemeente getGemeente(Gemeente gemeente) {
         Query query = entityManager.createNamedQuery("Gemeente.getGemeente");
         query.setParameter("gemeenteId", gemeente.getId());

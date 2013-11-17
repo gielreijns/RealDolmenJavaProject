@@ -25,6 +25,8 @@ public class BestemmingController implements Serializable{
     private BestemmingController bestemmingController;
     @Inject
     private ContinentService continentService;
+    @Inject
+    private GemeenteService gemeenteService;
 
     public ContinentService getContinentService() {
         return continentService;
@@ -46,4 +48,7 @@ public class BestemmingController implements Serializable{
         return continentService.getAllContinentenWithBestemming();
     }
   
+    public List<Gemeente> getAllBestemmingenFromContinent(Continent continent) {
+        return gemeenteService.getAllBestemmingenFromContinent(continent);
+    }
 }
