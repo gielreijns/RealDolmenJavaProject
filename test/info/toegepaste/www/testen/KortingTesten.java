@@ -52,4 +52,26 @@ public class KortingTesten {
 
         assertEquals(resultaat, 90);
     }
+    
+    @Test
+    public void controleBedragIs0() {
+        int percentage = 10;
+        int bedrag = 0;
+        int resultaat;
+
+        resultaat = korting.calculateKorting(bedrag, percentage);
+
+        assertEquals(resultaat, 0);
+    }
+    
+    @Test
+    public void controleBedragIsOnder0() {
+        int percentage = 10;
+        int bedrag = -5;
+        int resultaat;
+
+        resultaat = korting.calculateKorting(bedrag, percentage);
+
+        assertEquals(resultaat, 0);
+    }
 }
