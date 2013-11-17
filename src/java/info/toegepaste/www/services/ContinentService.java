@@ -15,4 +15,5 @@ import java.util.List;
 public interface ContinentService {
 
     public List<Continent> getAllContinenten();
+    public List<Continent> getAllContinentenWithBestemming();
 }

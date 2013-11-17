@@ -28,7 +28,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "continent")
 @NamedQueries({
     @NamedQuery(name = "Continent.getAll", query = "SELECT c FROM Continent c"),
-    @NamedQuery(name = "Continent.getAllWithBestemming", query = "SELECT c FROM Continent c")
+    @NamedQuery(name = "Continent.getAllWithBestemming", query = "SELECT DISTINCT c FROM Gemeente g LEFT JOIN g.land l LEFT JOIN l.continent c WHERE g.isBestemming = 1")
 })
 public class Continent implements Serializable {
     private static final long serialVersionUID = 1L;

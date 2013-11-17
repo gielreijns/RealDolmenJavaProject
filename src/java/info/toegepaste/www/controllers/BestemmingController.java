@@ -9,6 +9,7 @@ package info.toegepaste.www.controllers;
 import info.toegepaste.www.models.*;
 import info.toegepaste.www.services.*;
 import java.io.Serializable;
+import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -32,7 +33,6 @@ public class BestemmingController implements Serializable{
     public void setContinentService(ContinentService continentService) {
         this.continentService = continentService;
     }
-    
 
     public BestemmingController getBestemmingController() {
         return bestemmingController;
@@ -42,6 +42,8 @@ public class BestemmingController implements Serializable{
         this.bestemmingController = bestemmingController;
     }
 
-    
+    public List<Continent> getAllContinentenWithBestemming() {
+        return continentService.getAllContinentenWithBestemming();
+    }
   
 }

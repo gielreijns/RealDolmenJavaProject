@@ -26,4 +26,9 @@ public class ContinentServiceImpl implements ContinentService, Serializable {
         Query query = entityManager.createNamedQuery("Continent.getAll");
         return query.getResultList();
     }
+    @Override
+    public List<Continent> getAllContinentenWithBestemming() {
+        Query query = entityManager.createNamedQuery("Continent.getAllWithBestemming");
+        return query.getResultList();
+    }
 }
