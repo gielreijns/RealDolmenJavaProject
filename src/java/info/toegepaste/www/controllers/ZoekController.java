@@ -119,10 +119,6 @@ public class ZoekController implements Serializable{
         this.terugkeerdatum = terugkeerdatum;
     }
 
-   
-
-    
-
     public VervoerswijzeService getVervoerswijzeService() {
         return vervoerswijzeService;
     }
@@ -146,8 +142,6 @@ public class ZoekController implements Serializable{
     public void setVervoerswijze(Vervoerswijze vervoerswijze) {
         this.vervoerswijze = vervoerswijze;
     }
-    
-    
     
     public List<Vervoerswijze> getVervoerswijzen() {
         return vervoerswijzeService.getAllVervoerswijzen();
@@ -221,15 +215,5 @@ public class ZoekController implements Serializable{
     public String zoekOpBestemming(Gemeente gemeente) {
         gevondenReizen = reisService.getReisByGemeente(gemeente);
         return "zoekResultaten.xhtml";
-    }
-    
-    public String reisDetailsZoeken(Reis reis) {
-        Gemeente gemeente = new Gemeente();
-        
-        this.reis = reis;
-        gemeente = reis.getGemeente();
-        vertrekplaats = gemeenteService.getGemeente(gemeente);
-        
-        return "reisDetails.xhtml";
     }
 }
