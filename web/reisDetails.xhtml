@@ -15,28 +15,28 @@
             <div class="wrapper">
                 <div class="container">
                     <div class="whitebox" id="hpage_services">
-                        <h:dataTable value="#{zoekController.reis}" var="r"
+                        <h:dataTable value="#{detailController.reis}" var="reis"
                                      styleClass="order-table"
                                      headerClass="order-table-header"
                                      rowClasses="order-table-odd-row,order-table-even-row">
-                            <h3>#{r.naam}</h3>
-                            <p>#{r.beschrijving}</p>
+                            <h3>#{reis.naam}</h3>
+                            <p>#{reis.beschrijving}</p>
 
                             <h:column>
                                 <f:facet name="header">Vertrekdatum</f:facet>
-                                    #{r.vertrekdatum.time}
+                                    #{reis.vertrekdatum.time}
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Terugkeerdatum</f:facet>
-                                    #{r.terugkeerdatum.time}
+                                    #{reis.terugkeerdatum.time}
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Aantal plaatsen vrij</f:facet>
-                                    #{r.aantalPlaatsen}
+                                    #{reis.aantalPlaatsen}
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Prijs per persoon</f:facet>
-                                    #{r.prijsPerPersoon}
+                                    #{reis.prijsPerPersoon}
                             </h:column>
                         </h:dataTable>
                     </div>
