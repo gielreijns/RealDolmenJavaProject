@@ -5,6 +5,7 @@
  */
 package info.toegepaste.www.services;
 
+import info.toegepaste.www.models.Reis;
 import info.toegepaste.www.models.Vervoerswijze;
 import java.util.List;
 
@@ -15,4 +16,6 @@ import java.util.List;
 public interface VervoerswijzeService {
 
     public List<Vervoerswijze> getAllVervoerswijzen();
+    
+    public Vervoerswijze getVervoerswijze(Vervoerswijze vervoerswijze);
 }

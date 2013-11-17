@@ -26,4 +26,10 @@ public class VervoersWijzeServiceImpl implements VervoerswijzeService, Serializa
         Query query = entityManager.createNamedQuery("Vervoerswijze.getAll");
         return query.getResultList();
     }
+    
+    public Vervoerswijze getVervoerswijze(Vervoerswijze vervoerswijze) {
+        Query query = entityManager.createNamedQuery("Vervoerswijze.getVervoerswijze");
+        query.setParameter("vervoerswijzeId", vervoerswijze.getId());
+        return (Vervoerswijze) query.getSingleResult();
+    }
 }

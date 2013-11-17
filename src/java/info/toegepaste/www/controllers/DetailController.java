@@ -11,6 +11,7 @@ import info.toegepaste.www.models.Reis;
 import info.toegepaste.www.models.Vervoerswijze;
 import info.toegepaste.www.services.GemeenteService;
 import info.toegepaste.www.services.ReisService;
+import info.toegepaste.www.services.VervoerswijzeService;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
@@ -29,12 +30,22 @@ public class DetailController implements Serializable{
     private GemeenteService gemeenteService;
     @Inject
     private ReisService reisService;
+    @Inject
+    private VervoerswijzeService vervoerswijzeService;
     
     private Reis reis;
     private Gemeente vertrekplaats;
     private Gemeente bestemming;
     private Vervoerswijze vervoerswijze;
 
+    public VervoerswijzeService getVervoerswijzeService() {
+        return vervoerswijzeService;
+    }
+
+    public void setVervoerswijzeService(VervoerswijzeService vervoerswijzeService) {
+        this.vervoerswijzeService = vervoerswijzeService;
+    }
+    
     public DetailController getDetailController() {
         return detailController;
     }
@@ -100,6 +111,8 @@ public class DetailController implements Serializable{
         
         gemeente = reis.getGemeente();
         bestemming = gemeenteService.getGemeente(gemeente);
+        
+        vervoerswijze = vervoerswijzeService.getVervoerswijze(reis.getVervoerswijze());
         
         return "reisDetails.xhtml";
     }
