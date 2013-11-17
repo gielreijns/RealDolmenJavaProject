@@ -200,10 +200,7 @@ public class ZoekController implements Serializable{
        
     }
     
-    public String zoekOpBestemming() {
-        gemeente = new Gemeente();
-        gemeente.setId(gemeenteId);
-
+    public String zoekOpBestemming(Gemeente gemeente) {
         gevondenReizen = reisService.getReisByGemeente(gemeente);
         return "zoekResultaten.xhtml";
     }

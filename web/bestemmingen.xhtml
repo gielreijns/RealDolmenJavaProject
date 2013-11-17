@@ -29,9 +29,7 @@
                         <h:dataTable value="#{zoekController.alleBestemmingen}" var="gemeente">
                             <h:column>
                                 <h:form>
-                                    <h:commandLink action="#{zoekController.zoekOpBestemming()}" value='#{gemeente.naam}' >
-                                        <f:param name="#{zoekController.gemeenteId}" value="#{gemeente.id}"/>
-                                    </h:commandLink>
+                                    <h:commandLink action="#{zoekController.zoekOpBestemming(gemeente)}" value='#{gemeente.naam}' />
                                 </h:form>
                             </h:column>
                         </h:dataTable>
