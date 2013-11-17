@@ -19,4 +19,6 @@ public interface LandService {
     public List<Land> getAllLanden();
     
     public List<Land> getAllLandenByContinent(Continent continent);
+    
+    public Land getLand(Land land);
 }

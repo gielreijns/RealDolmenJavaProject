@@ -36,5 +36,10 @@ public class LandServiceImpl implements LandService, Serializable {
         return query.getResultList();
     }
     
-   
+   @Override
+   public Land getLand(Land land) {
+       Query query = entityManager.createNamedQuery("Land.getLand");
+        query.setParameter("landId", land.getId());
+        return (Land) query.getSingleResult();
+   }
 }
