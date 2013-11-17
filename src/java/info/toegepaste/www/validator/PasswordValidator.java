@@ -28,7 +28,7 @@ public class PasswordValidator implements Validator {
 	  String confirmPassword = uiInputConfirmPassword.getSubmittedValue()
 		.toString();
  
-	  // Let required="true" do its job.
+	  
 	  if (password == null || password.isEmpty() || confirmPassword == null
 		|| confirmPassword.isEmpty()) {
 			return;
@@ -37,7 +37,7 @@ public class PasswordValidator implements Validator {
 	  if (!password.equals(confirmPassword)) {
 		uiInputConfirmPassword.setValid(false);
 		throw new ValidatorException(new FacesMessage(
-			"Password must match confirm password."));
+			"Wachtwoord moet hetzelfde zijn als het bevestigde wachtwoord."));
 	  }
  
 	}
