@@ -95,8 +95,11 @@ public class DetailController implements Serializable{
         Gemeente gemeente = new Gemeente();
         
         this.reis = reis;
-        gemeente = reis.getGemeente();
+        gemeente = reis.getVertrekplaats();
         vertrekplaats = gemeenteService.getGemeente(gemeente);
+        
+        gemeente = reis.getGemeente();
+        bestemming = gemeenteService.getGemeente(gemeente);
         
         return "reisDetails.xhtml";
     }

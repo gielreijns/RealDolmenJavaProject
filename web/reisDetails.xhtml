@@ -15,12 +15,13 @@
             <div class="wrapper">
                 <div class="container">
                     <div class="whitebox" id="hpage_services">
+                        <h3>#{detailController.reis.naam}</h3>
+                        <p>#{detailController.reis.beschrijving}</p>
+                        
                         <h:dataTable value="#{detailController.reis}" var="reis"
                                      styleClass="order-table"
                                      headerClass="order-table-header"
                                      rowClasses="order-table-odd-row,order-table-even-row">
-                            <h3>#{reis.naam}</h3>
-                            <p>#{reis.beschrijving}</p>
 
                             <h:column>
                                 <f:facet name="header">Vertrekdatum</f:facet>
@@ -43,6 +44,12 @@
                                 <h:outputText value="#{reis.prijsPerPersoon}" />
                             </h:column>
                         </h:dataTable>
+                        <p>
+                            Vertrekplaats: #{detailController.vertrekplaats.naam}
+                        </p>
+                        <p>
+                            Bestemming: #{detailController.bestemming.naam}
+                        </p>
                     </div>
                 </div>
             </div>
