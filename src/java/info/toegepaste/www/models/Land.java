@@ -31,7 +31,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "land")
 @NamedQueries({
     @NamedQuery(name = "Land.getAll", query = "SELECT l FROM Land l order by l.naam")
-    
 })
 public class Land implements Serializable {
 
@@ -45,13 +44,28 @@ public class Land implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    
-   @ManyToMany
-   private List<Continent> continent;
-
-    
+    @ManyToMany
+    private List<Continent> continenten;
+    @OneToMany(mappedBy = "land")
+    private List<Gemeente> gemeentes;
 
     public Land() {
+    }
+
+    public List<Continent> getContinenten() {
+        return continenten;
+    }
+
+    public void setContinenten(List<Continent> continenten) {
+        this.continenten = continenten;
+    }
+
+    public List<Gemeente> getGemeentes() {
+        return gemeentes;
+    }
+
+    public void setGemeentes(List<Gemeente> gemeentes) {
+        this.gemeentes = gemeentes;
     }
 
     public Integer getId() {
@@ -70,11 +84,9 @@ public class Land implements Serializable {
         this.naam = naam;
     }
 
-    
-
     @Override
     public String toString() {
-        return "Land{" + "id=" + id + ", naam=" + naam + ", continenten=" +  '}';
+        return "Land{" + "id=" + id + ", naam=" + naam + ", continenten=" + '}';
     }
 
     @Override
