@@ -140,8 +140,6 @@ public class DetailController implements Serializable{
         
         vervoerswijze = vervoerswijzeService.getVervoerswijze(reis.getVervoerswijze());
         
-        
-        
         return "reisDetails.xhtml";
     }
 }
