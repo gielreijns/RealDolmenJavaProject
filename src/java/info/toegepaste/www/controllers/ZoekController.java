@@ -38,6 +38,7 @@ public class ZoekController implements Serializable{
     private Gemeente bestemming;
     private String gemeenteNaam;
     private Integer gemeenteId;
+    private Integer vervoerswijzeId;
     private Integer aantalPlaatsen;
     private String vervoerswijzeNaam;
     private GregorianCalendar vertrekdatum;
@@ -45,6 +46,14 @@ public class ZoekController implements Serializable{
     private Reis reis;
     private List<Reis> gevondenReizen;
     private List<Gemeente> bestemmingen;
+
+    public Integer getVervoerswijzeId() {
+        return vervoerswijzeId;
+    }
+
+    public void setVervoerswijzeId(Integer vervoerswijzeId) {
+        this.vervoerswijzeId = vervoerswijzeId;
+    }
 
     public Gemeente getVertrekplaats() {
         return vertrekplaats;
@@ -204,10 +213,12 @@ public class ZoekController implements Serializable{
     public String zoeken() {
         gemeente = new Gemeente();
         gemeente.setId(gemeenteId);
+        vervoerswijze = new Vervoerswijze();
+        vervoerswijze.setId(vervoerswijzeId);
         
-        //eerst enkel zoeken op gemeente om te testen
-        gevondenReizen = reisService.getReisByGemeente(gemeente);
-        //gevondenReizen = reisService.getReisByAllZoekParameters(gemeente, aantalPlaatsen, vervoerswijze, vertrekdatum, terugkeerdatum);
+        
+        
+        gevondenReizen = reisService.getReisByAllZoekParameters(gemeente, aantalPlaatsen, vervoerswijze);
         return "zoekResultaten.xhtml";
        
     }

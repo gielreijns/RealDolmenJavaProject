@@ -78,13 +78,12 @@ public class ReisServiceImpl implements ReisService, Serializable {
     }
     
     @Override
-    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze, GregorianCalendar vertrekdatum, GregorianCalendar terugkeerdatum) {
+    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze) {
         Query query = entityManager.createNamedQuery("Reis.getByAllZoekParameters");
         query.setParameter("gemeente", gemeente);
         query.setParameter("aantalPlaatsen", aantalPlaatsen);
         query.setParameter("vervoerswijze", vervoerswijze);
-        query.setParameter("vertrekdatum", vertrekdatum);
-        query.setParameter("terugkeerdatum", terugkeerdatum);
+        
         return query.getResultList();
     }
 }

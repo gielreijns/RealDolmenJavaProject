@@ -28,31 +28,29 @@
                         <h3>Zoeken</h3>
                         <h:form>
                             <fieldset>  
-                                <h:panelGrid columns="6">
+                                <h:panelGrid columns="3">
                                     <h:outputLabel for="gemeente">Bestemming:</h:outputLabel>
                                     <h:selectOneMenu id="gemeentes" value="#{zoekController.gemeenteId}">
                                         <f:selectItem itemLabel="- Selecteer -" />
                                         <f:selectItems value="#{zoekController.alleBestemmingen}" var="gemeente" itemLabel="#{gemeente.naam}" itemValue="#{gemeente.id}" />
                                     </h:selectOneMenu>
 
-                                    <!--<h:outputLabel for="periodestart">Periode start:</h:outputLabel>
-                                    <h:inputText id="periodestart" value="#{zoekController.vertrekdatum}" class="datepicker"/>-->
-
-                                    <h:outputLabel for="plaatsen">Beschikbare plaatsen:</h:outputLabel>
-                                    <h:inputText id="plaatsen" value="#{zoekController.aantalPlaatsen}"/>
-
+                                    <h:commandButton value="Zoeken" action="#{zoekController.zoeken}" class="button"/>
                                     <h:outputLabel for="vervoerswijze">Vervoerswijze:</h:outputLabel>
-                                    <h:selectOneMenu id="vervoerswijze" value="#{zoekController.vervoerswijzeNaam}">
+                                    <h:selectOneMenu id="vervoerswijze" value="#{zoekController.vervoerswijzeId}">
                                         <f:selectItem itemLabel="- Selecteer -" />
                                         <f:selectItems value="#{zoekController.vervoerswijzen}" var="vervoerswijze" itemLabel="#{vervoerswijze.naam}" itemValue="#{vervoerswijze.id}" />
                                     </h:selectOneMenu>
+                                     <h:outputLabel></h:outputLabel>
+                                    <h:outputLabel for="plaatsen">Aantal personen:</h:outputLabel>
+                                    <h:inputText id="plaatsen" value="#{zoekController.aantalPlaatsen}"/>
+                                   
                                     
-                                    <!--<h:outputLabel for="periodeeinde">Periode einde:</h:outputLabel>
-                                    <h:inputText id="periodeeinde" value="#{zoekController.terugkeerdatum}" class="datepicker"/>-->
-
+                                    
+                                    
                                     <h:outputLabel></h:outputLabel>
 
-                                    <h:commandButton value="Zoeken" action="#{zoekController.zoeken}" class="button"/>
+                                    
                                 </h:panelGrid>
                             </fieldset>
                         </h:form>

@@ -33,5 +33,5 @@ public interface ReisService {
 
     public List<Reis> getReisByReisPeriode(GregorianCalendar vertrekdatum, GregorianCalendar terugkeerdatum);
     
-    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze, GregorianCalendar vertrekdatum, GregorianCalendar terugkeerdatum);
+    public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze);
 }
