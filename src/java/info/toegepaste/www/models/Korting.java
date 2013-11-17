@@ -23,6 +23,10 @@ public class Korting implements Serializable {
         int nieuwBedrag;
         int korting;
 
+        if (bedrag <= 0) {
+            bedrag = 0;
+        }
+        
         if (controleerPercentage(kortingsPercentage)) {
             korting = Math.round((bedrag / 100) * kortingsPercentage);
             nieuwBedrag = bedrag - korting;
