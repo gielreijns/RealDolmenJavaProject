@@ -24,19 +24,23 @@
 
                             <h:column>
                                 <f:facet name="header">Vertrekdatum</f:facet>
-                                    #{reis.vertrekdatum.time}
+                                <h:outputText value="#{reis.vertrekdatum.time}">
+                                    <f:convertDateTime pattern="d MMMM yyyy" />
+                                </h:outputText>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Terugkeerdatum</f:facet>
-                                    #{reis.terugkeerdatum.time}
+                                <h:outputText value="#{reis.terugkeerdatum.time}">
+                                    <f:convertDateTime pattern="d MMMM yyyy" />
+                                </h:outputText>
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Aantal plaatsen vrij</f:facet>
-                                    #{reis.aantalPlaatsen}
+                                <h:outputText value="#{reis.aantalPlaatsen}" />
                             </h:column>
                             <h:column>
                                 <f:facet name="header">Prijs per persoon</f:facet>
-                                    #{reis.prijsPerPersoon}
+                                <h:outputText value="#{reis.prijsPerPersoon}" />
                             </h:column>
                         </h:dataTable>
                     </div>
