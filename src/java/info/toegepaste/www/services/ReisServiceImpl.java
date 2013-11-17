@@ -92,6 +92,18 @@ public class ReisServiceImpl implements ReisService, Serializable {
             query.setParameter("aantalPlaatsen", aantalPlaatsen);
             return query.getResultList();     
         }
+        else if (gemeente.getId() != null && vervoerswijze.getId() == null && aantalPlaatsen != null){
+            Query query = entityManager.createNamedQuery("Reis.getByAantalPlaatsenGemeente");
+            query.setParameter("aantalPlaatsen", aantalPlaatsen);
+            query.setParameter("gemeente", gemeente);
+            return query.getResultList();     
+        }
+        else if (gemeente.getId() == null && vervoerswijze.getId() != null && aantalPlaatsen != null){
+            Query query = entityManager.createNamedQuery("Reis.getByAantalPlaatsenVervoerswijze");
+            query.setParameter("aantalPlaatsen", aantalPlaatsen);
+            query.setParameter("vervoerswijze", vervoerswijze);
+            return query.getResultList();     
+        }
         else if (gemeente.getId() != null && vervoerswijze.getId() != null && aantalPlaatsen == null){
             Query query = entityManager.createNamedQuery("Reis.getByAllZoekParameters");
             query.setParameter("gemeente", gemeente);
