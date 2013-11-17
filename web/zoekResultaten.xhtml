@@ -30,9 +30,9 @@
                     
                         <h:dataTable value="#{zoekController.gevondenReizen}" var="reis">
                             <h:column>
-                                <h:link value="#{reis.naam}" outcome="reisDetails" >
-                                    <f:param name="reisId" value="#{reis.id}"/>
-                                </h:link>
+                                <h:form>
+                                    <h:commandLink action="#{zoekController.reisDetailsZoeken(reis)}" value='#{reis.naam}' />
+                                </h:form>
                             </h:column>
                         </h:dataTable>
                         
