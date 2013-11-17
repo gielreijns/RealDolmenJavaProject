@@ -21,7 +21,7 @@ public class Korting implements Serializable {
      */
     public int calculateKorting(int bedrag, int kortingsPercentage) {
         int nieuwBedrag;
-        int korting = 2;
+        int korting;
 
         if (controleerPercentage(kortingsPercentage)) {
             korting = Math.round((bedrag / 100) * kortingsPercentage);
