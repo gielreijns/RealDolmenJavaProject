@@ -204,4 +204,8 @@ public class ZoekController implements Serializable{
         gevondenReizen = reisService.getReisByGemeente(gemeente);
         return "zoekResultaten.xhtml";
     }
+    
+    public String reisDetailsZoeken(Reis reis) {
+        return "reisDetails.xhtml";
+    }
 }
