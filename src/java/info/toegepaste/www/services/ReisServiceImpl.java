@@ -79,11 +79,41 @@ public class ReisServiceImpl implements ReisService, Serializable {
     
     @Override
     public List<Reis> getReisByAllZoekParameters(Gemeente gemeente, Integer aantalPlaatsen, Vervoerswijze vervoerswijze) {
-        Query query = entityManager.createNamedQuery("Reis.getByAllZoekParameters");
-        query.setParameter("gemeente", gemeente);
-        query.setParameter("aantalPlaatsen", aantalPlaatsen);
-        query.setParameter("vervoerswijze", vervoerswijze);
-        
-        return query.getResultList();
+        if (gemeente.getId() != null && vervoerswijze.getId() == null && aantalPlaatsen == null){
+            Query query = entityManager.createNamedQuery("Reis.getByGemeente");
+            query.setParameter("gemeente", gemeente);
+             return query.getResultList();
+        }else if (gemeente.getId() == null && vervoerswijze.getId() != null && aantalPlaatsen == null){
+            Query query = entityManager.createNamedQuery("Reis.getByVervoerswijze");
+            query.setParameter("vervoerswijze", vervoerswijze);
+             return query.getResultList();
+        }else if (gemeente.getId() == null && vervoerswijze.getId() == null && aantalPlaatsen != null){
+            Query query = entityManager.createNamedQuery("Reis.getByAantalPlaatsen");
+            query.setParameter("aantalPlaatsen", aantalPlaatsen);
+            return query.getResultList();     
+        }
+        else if (gemeente.getId() != null && vervoerswijze.getId() != null && aantalPlaatsen == null){
+            Query query = entityManager.createNamedQuery("Reis.getByAllZoekParameters");
+            query.setParameter("gemeente", gemeente);
+            query.setParameter("vervoerswijze", vervoerswijze);
+            query.setParameter("aantalPlaatsen", 999999999);
+            
+            return query.getResultList();   
+        }
+        else if (gemeente.getId() != null && vervoerswijze.getId() != null && aantalPlaatsen != null){
+            Query query = entityManager.createNamedQuery("Reis.getByAllZoekParameters");
+            query.setParameter("gemeente", gemeente);
+            query.setParameter("vervoerswijze", vervoerswijze);
+            query.setParameter("aantalPlaatsen", aantalPlaatsen);
+            
+            return query.getResultList();   
+
+         }
+        else 
+        {
+            Query query = entityManager.createNamedQuery("Reis.getAll");
+            return query.getResultList(); 
+        }
+       
     }
 }
