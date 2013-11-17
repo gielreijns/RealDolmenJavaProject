@@ -42,8 +42,12 @@
                                         <f:selectItems value="#{zoekController.vervoerswijzen}" var="vervoerswijze" itemLabel="#{vervoerswijze.naam}" itemValue="#{vervoerswijze.id}" />
                                     </h:selectOneMenu>
                                      <h:outputLabel></h:outputLabel>
-                                    <h:outputLabel for="plaatsen">Aantal personen:</h:outputLabel>
-                                    <h:inputText id="plaatsen" value="#{zoekController.aantalPlaatsen}"/>
+                                      <h:outputLabel for="plaatsen">Aantal personen:</h:outputLabel>
+                            <h:inputText id="plaatsen" value="#{zoekController.aantalPlaatsen}">
+                                <f:convertNumber integerOnly="true" type="number"  />
+                            </h:inputText>
+                                      <h:messages layout="table" for="plaatsen" style="Color: red"/>
+                                    
                                    
                                     
                                     
