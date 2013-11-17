@@ -55,23 +55,14 @@ public class Gemeente implements Serializable {
     @NotNull
     @Column(name = "isBestemming")
     private boolean isBestemming;
-    
     @ManyToOne
     private Land land;
-    
-    
-    
-
     @OneToMany(mappedBy = "gemeente")
     private List<Gebruiker> gebruikers;
     @OneToMany(mappedBy = "gemeente")
     private List<Reis> reizen;
     @OneToMany(mappedBy = "gemeente")
     private List<Reis> vertrekplaatsenReizen;
-    
-   
-    
-    
 
     public Gemeente() {
     }
@@ -140,13 +131,9 @@ public class Gemeente implements Serializable {
         this.land = land;
     }
 
-    
-
-    
-
     @Override
     public String toString() {
-        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", land=" + land + ", gebruikers=" +  '}';
+        return "Gemeente{" + "id=" + id + ", naam=" + naam + ", postcode=" + postcode + ", land=" + land + ", gebruikers=" + '}';
     }
 
     @Override
