@@ -199,4 +199,12 @@ public class ZoekController implements Serializable{
         return "zoekResultaten.xhtml";
        
     }
+    
+    public String zoekOpBestemming() {
+        gemeente = new Gemeente();
+        gemeente.setId(gemeenteId);
+
+        gevondenReizen = reisService.getReisByGemeente(gemeente);
+        return "zoekResultaten.xhtml";
+    }
 }
