@@ -42,7 +42,7 @@ import javax.validation.constraints.NotNull;
 @NamedQuery(name = "Reis.getByVertrekdatum", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum"),
 @NamedQuery(name = "Reis.getTerugkeerdatum", query = "SELECT r from Reis r WHERE r.terugkeerdatum = :terugkeerdatum"),
 @NamedQuery(name = "Reis.getByReisPeriode", query = "SELECT r from Reis r WHERE r.vertrekdatum = :vertrekdatum AND r.terugkeerdatum = :terugkeerdatum"),
-@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente OR r.aantalPlaatsen >= :aantalPlaatsen OR r.vervoerswijze = :vervoerswijze ORDER BY r.naam")
+@NamedQuery(name = "Reis.getByAllZoekParameters", query = "SELECT r from Reis r WHERE r.gemeente = :gemeente AND r.aantalPlaatsen >= :aantalPlaatsen AND r.vervoerswijze = :vervoerswijze ORDER BY r.naam")
 })
 public class Reis implements Serializable {
 
