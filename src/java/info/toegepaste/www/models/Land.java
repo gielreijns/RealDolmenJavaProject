@@ -44,21 +44,22 @@ public class Land implements Serializable {
     @NotNull
     @Column(name = "naam")
     private String naam;
-    @ManyToMany
-    private List<Continent> continenten;
+    @ManyToOne
+    private Continent continent;
     @OneToMany(mappedBy = "land")
     private List<Gemeente> gemeentes;
 
     public Land() {
     }
 
-    public List<Continent> getContinenten() {
-        return continenten;
+    public Continent getContinent() {
+        return continent;
     }
 
-    public void setContinenten(List<Continent> continenten) {
-        this.continenten = continenten;
+    public void setContinent(Continent continent) {
+        this.continent = continent;
     }
+
 
     public List<Gemeente> getGemeentes() {
         return gemeentes;
